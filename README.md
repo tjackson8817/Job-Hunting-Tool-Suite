@@ -1,10 +1,10 @@
 # Job Hunting Tool Suite — Overview Guide
 
-Four standalone tools, each solving a distinct stage of a job search, designed to work together but each fully independent — any one can be used on its own. This guide covers **what each tool does and how they fit together**. For **how to actually use each one** — every field, every toggle, every output option — see that tool's own User Guide or Sale Fish combined guide, linked at the bottom.
+Four standalone tools that cover a full job search, each solving a distinct stage, designed to work together but each fully independent — any one can be used on its own. A fifth tool, LinkedIn Article Share Builder, sits outside that job-search funnel entirely — it's for staying visible on LinkedIn whether or not you're actively job hunting, and is covered separately near the end of this guide. This guide covers **what each tool does and how they fit together**. For **how to actually use each one** — every field, every toggle, every output option — see that tool's own User Guide or Sale Fish combined guide, linked at the bottom.
 
 ---
 
-## The Four Tools At a Glance
+## The Four Job-Search Tools At a Glance
 
 | Tool | Solves | Core Input |
 |---|---|---|
@@ -67,5 +67,16 @@ If a tool ever responds with an explanation of a missing capability instead of y
 | Job Posting Finder | `Job_Posting_Finder_User_Guide.md` / `.docx` | `Sale_Fish_Job_Posting_Finder_Combined_Guide.docx` |
 | Resume & Cover Letter Tailoring | `Resume_Cover_Letter_Tailoring_User_Guide.md` / `.docx` | `Sale_Fish_Resume_Cover_Letter_Tailoring_Combined_Guide.docx` |
 | Outreach Message Builder | `Outreach_Message_Builder_User_Guide.md` / `.docx` | `Sale_Fish_Outreach_Message_Builder_Combined_Guide.docx` |
+| LinkedIn Article Share Builder | `LinkedIn_Article_Share_User_Guide.md` / `.docx` | `Sale_Fish_LinkedIn_Article_Share_Combined_Guide.docx` |
 
 Each tool's own guide is the authoritative source for its specific fields, toggles, and output formats — this overview intentionally stays at the "what and why" level so it doesn't drift out of sync as individual tools evolve.
+
+---
+
+## A Fifth Tool, Outside the Funnel: LinkedIn Article Share Builder
+
+Everything above is a linear (or semi-linear) job-search funnel. This fifth tool isn't part of that funnel at all — it's for staying visible on LinkedIn consistently, whether or not you're actively job hunting. It finds real, recent, on-brand articles worth sharing, presents the top 3 with reasoning for each, and drafts the actual post (personal hook, summary, hashtags) plus optional matching artwork for whichever one you pick.
+
+It shares the same design discipline as the other four — an honesty guardrail suited to what it produces (only real, verifiable articles with real URLs; no padding the list if genuinely on-brand options are thin that day), and it reuses the "set once, reuse every time" pattern for your name and tagline rather than asking you to retype your brand identity for every post.
+
+One thing worth knowing if you ever consider automating it: running it manually through a Claude chat is free, same as every other tool in this suite. A fully automated "generate one every morning without me" version is possible but requires the Anthropic API directly and small ongoing costs — a genuinely different (and separate) consideration from the free, manual tool described here.
