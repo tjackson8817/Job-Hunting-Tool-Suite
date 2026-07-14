@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Job Hunting Tool Suite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --navy:#0f2d3d;
+    --blue:#1b6fa8;
+    --teal:#0f9b8e;
+    --bg:#f4f7f9;
+    --card:#ffffff;
+    --border:#d7e0e5;
+    --text:#1c2b33;
+    --muted:#5b6b73;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:56px 32px 48px;
+    text-align:center;
+  }
+  header h1{margin:0 0 10px 0;font-size:32px;}
+  header p{margin:0 auto;opacity:.88;font-size:16px;max-width:560px;line-height:1.5;}
+  .wrap{
+    max-width:1000px;
+    margin:0 auto;
+    padding:40px 24px 60px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:22px;
+  }
+  @media (max-width:720px){
+    .grid{grid-template-columns:1fr;}
+  }
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:26px 26px 24px;
+    display:flex;
+    flex-direction:column;
+    box-shadow:0 1px 3px rgba(15,45,61,0.06);
+  }
+  .step-badge{
+    display:inline-block;
+    background:#e7f1f7;
+    color:var(--blue);
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.5px;
+    padding:4px 10px;
+    border-radius:20px;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .card h2{
+    margin:0 0 10px 0;
+    font-size:19px;
+    color:var(--navy);
+  }
+  .card p{
+    margin:0 0 20px 0;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.55;
+    flex-grow:1;
+  }
+  .btn{
+    display:inline-block;
+    background:var(--teal);
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:7px;
+    text-align:center;
+    transition:background .15s;
+  }
+  .btn:hover{background:#0c8579;}
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .btn-secondary{
+    display:inline-block;
+    background:#e7f1f7;
+    color:var(--blue);
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    padding:10px 18px;
+    border-radius:7px;
+    text-align:center;
+    transition:background .15s;
+  }
+  .btn-secondary:hover{background:#d9e9f2;}
+  .flow{
+    margin-top:44px;
+    background:#eef4f7;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:22px 26px;
+  }
+  .flow h3{
+    margin:0 0 10px 0;
+    color:var(--navy);
+    font-size:16px;
+  }
+  .flow p{
+    margin:0;
+    font-size:14px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  footer{
+    text-align:center;
+    padding:28px 24px 40px;
+    font-size:13px;
+    color:var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Job Hunting Tool Suite</h1>
+  <p>Four standalone tools that turn a name-and-industry hunch into researched companies, real postings, tailored applications, and drafted outreach — each one works on its own, and together they cover a full job search.</p>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <div class="card">
+      <span class="step-badge">STEP 1 · RESEARCH</span>
+      <h2>Target Company Prompt Builder</h2>
+      <p>Researches and ranks companies for your industry, purpose, or NAICS code — builds a formatted Excel tracker with a computed Suggested Priority Rank, so you know where to focus first.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://tjackson8817.github.io/Target-Company-Prompt-Builder/prompt_builder.html">Open Tool →</a>
+        <a class="btn-secondary" href="https://github.com/tjackson8817/Target-Company-Prompt-Builder/blob/main/Prompt_Builder_User_Guide.md">User Guide</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="step-badge">STEP 2 · VERIFY</span>
+      <h2>Job Posting Finder</h2>
+      <p>Checks who's actively hiring, right now — real, current job postings with real URLs, not company research. Built to report fewer results honestly rather than pad the list.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://tjackson8817.github.io/Job-Posting-Finder/job_posting_finder.html">Open Tool →</a>
+        <a class="btn-secondary" href="https://github.com/tjackson8817/Job-Posting-Finder/blob/main/Job_Posting_Finder_User_Guide.md">User Guide</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="step-badge">STEP 3 · APPLY OR CONNECT</span>
+      <h2>Resume & Cover Letter Tailoring</h2>
+      <p>Tailors your actual resume and cover letter to a specific posting — keyword/gap analysis, bullet rewrites, a traditional letter or a two-column Qualifications Match Letter. Never invents a qualification you don't have.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://tjackson8817.github.io/Resume-Cover-Letter-Tailoring/resume_cover_letter_tailoring.html">Open Tool →</a>
+        <a class="btn-secondary" href="https://github.com/tjackson8817/Resume-Cover-Letter-Tailoring/blob/main/Resume_Cover_Letter_Tailoring_User_Guide.md">User Guide</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="step-badge">STEP 3 · APPLY OR CONNECT</span>
+      <h2>Outreach Message Builder</h2>
+      <p>Drafts the actual messages you send — tailored per company based on your real connection type, not one generic template. Never invents a relationship that doesn't exist.</p>
+      <div class="btn-row">
+        <a class="btn" href="https://tjackson8817.github.io/Outreach-Message-Builder/outreach_message_builder.html">Open Tool →</a>
+        <a class="btn-secondary" href="https://github.com/tjackson8817/Outreach-Message-Builder/blob/main/Outreach_Message_Builder_User_Guide.md">User Guide</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="flow">
+    <h3>How they fit together</h3>
+    <p>Steps 1 and 2 run in that order — the Job Posting Finder needs a priority-ranked shortlist that only exists after the Prompt Builder has already run. Steps 3 have no fixed order: network first and tailor your resume once a real opening exists, or find a posting first and tailor immediately, then follow up with outreach. Both are legitimate — the tools don't force either sequence.</p>
+  </div>
+</div>
+
+<footer>
+  Built for Claude · No install, no account, no server — every tool runs entirely in your browser.
+</footer>
+
+</body>
+</html>
