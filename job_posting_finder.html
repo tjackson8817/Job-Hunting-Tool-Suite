@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Job Posting Finder</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --navy:#0f2d3d;
+    --blue:#1b6fa8;
+    --teal:#0f9b8e;
+    --bg:#f4f7f9;
+    --card:#ffffff;
+    --border:#d7e0e5;
+    --text:#1c2b33;
+    --muted:#5b6b73;
+    --tag-bg:#e7f1f7;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+    color:#fff;
+    padding:24px 32px;
+  }
+  header h1{margin:0 0 4px 0;font-size:22px;}
+  header p{margin:0;opacity:.85;font-size:14px;}
+  .wrap{
+    display:flex;
+    gap:24px;
+    padding:24px;
+    max-width:1400px;
+    margin:0 auto;
+    align-items:flex-start;
+  }
+  .col{flex:1;min-width:0;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 22px;
+    margin-bottom:18px;
+  }
+  fieldset{
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin:0 0 18px 0;
+    padding:14px 16px 16px 16px;
+  }
+  legend{font-weight:600;color:var(--navy);padding:0 6px;font-size:14px;}
+  .field{margin-bottom:14px;}
+  label{
+    display:block;
+    font-weight:600;
+    font-size:13.5px;
+    margin-bottom:5px;
+    color:var(--navy);
+  }
+  .tag{
+    background:var(--tag-bg);
+    color:var(--blue);
+    font-size:10.5px;
+    font-weight:600;
+    padding:2px 7px;
+    border-radius:10px;
+    margin-left:6px;
+    text-transform:uppercase;
+    letter-spacing:.3px;
+  }
+  .hint{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  input[type=text], input[type=number], textarea, select{
+    width:100%;
+    padding:9px 10px;
+    border:1px solid var(--border);
+    border-radius:6px;
+    font-size:14px;
+    font-family:inherit;
+    background:#fcfdfe;
+  }
+  textarea{resize:vertical;min-height:64px;}
+  .radio-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:2px;}
+  .radio-opt{display:flex;align-items:center;gap:6px;font-size:13.5px;}
+  .radio-opt input{width:auto;}
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+  .check-opt{display:flex;align-items:center;gap:6px;font-size:13.5px;}
+  .check-opt input{width:auto;}
+  #outputPanel{position:sticky;top:24px;}
+  #promptText{
+    white-space:pre-wrap;
+    font-family:"SFMono-Regular",Consolas,Menlo,monospace;
+    font-size:12.5px;
+    background:#0f2d3d;
+    color:#dff1ec;
+    padding:16px;
+    border-radius:8px;
+    max-height:560px;
+    overflow-y:auto;
+    line-height:1.5;
+  }
+  .btn-row{display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;}
+  button{
+    cursor:pointer;
+    border:none;
+    border-radius:6px;
+    padding:9px 16px;
+    font-size:13.5px;
+    font-weight:600;
+    font-family:inherit;
+  }
+  .btn-primary{background:var(--teal);color:#fff;}
+  .btn-primary:hover{background:#0c8579;}
+  .btn-secondary{background:var(--tag-bg);color:var(--blue);}
+  .btn-secondary:hover{background:#d9e9f2;}
+  #placeholder{color:var(--muted);font-style:italic;font-size:13.5px;}
+  .divider{height:1px;background:var(--border);margin:16px 0;}
+  .banner{
+    background:#fff7e0;
+    border:1px solid #f0d98c;
+    border-radius:8px;
+    padding:12px 14px;
+    font-size:12.5px;
+    color:#5b4a1a;
+    line-height:1.5;
+    margin-bottom:18px;
+  }
+  .banner b{color:#3d3113;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Job Posting Finder</h1>
+  <p>Companion tool — turns a shortlist of companies and/or titles into a prompt that finds real, current job postings.</p>
+</header>
+
+<div class="wrap">
+  <div class="col">
+
+    <div class="banner">
+      <b>This is the companion to the Target Company Prompt Builder, not a replacement.</b> That tool researches companies and ranks them (Suggested Priority Rank). This tool takes a shortlist — ideally your top few by that rank — and asks Claude to actually search for live job postings. Best practice: run the company research first, then paste your highest-priority companies and their Suggested Job Title Keywords in here.
+    </div>
+
+    <div class="card">
+      <fieldset>
+        <legend>1 · Paste from your tracker <span class="tag">optional</span></legend>
+        <p class="hint" style="margin-top:-4px;margin-bottom:12px;">Two ways to build your list, and you can use either one alone or both together: <b>bulk paste</b> rows straight from your tracker below, or skip this box and just <b>type companies/titles by hand</b> in Section 2. Parsed rows land in an editable list either way, so you can fix or add to anything before generating your prompt.</p>
+        <div class="field">
+          <label>Bulk paste — Company + Suggested Job Title Keywords columns</label>
+          <textarea id="bulkPaste" placeholder="Select the Company and Suggested Job Title Keywords columns in your tracker (or the whole row), copy, and paste here. One row per line."></textarea>
+          <p class="hint">Keeps each company's own tailored title instead of blending everything into one generic list — Dragos still searches "VP, Professional Services" while KPMG searches "Partner, Cyber Security Services," not a mix of both.</p>
+          <button class="btn-secondary" id="parseBulkBtn" type="button" style="margin-top:8px;">Parse rows</button>
+        </div>
+        <div class="field" id="pairedPreviewField" style="display:none;">
+          <label>Parsed rows — check these before generating your prompt</label>
+          <div id="pairedPreview"></div>
+          <button class="btn-secondary" id="addPairBtn" type="button" style="margin-top:8px;">+ Add row manually</button>
+          <p class="hint">Didn't paste anything above? Click this to add a row from scratch — no bulk paste required.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · What to search for</legend>
+        <p class="hint" style="margin-top:-4px;margin-bottom:12px;">Fill in at least one — company names alone, job titles/keywords alone, parsed rows above, or any combination.</p>
+
+        <div class="field">
+          <label>Companies <span class="tag">optional</span></label>
+          <textarea id="companies" placeholder="One per line or comma-separated — paste directly from your tracker's Company column, e.g.&#10;Dragos&#10;Claroty&#10;Schneider Electric"></textarea>
+          <p class="hint">Tip: paste your top few companies by Suggested Priority Rank rather than an entire tracker — this runs live search per company, so a shortlist keeps results focused and keeps the request from getting too large. (These search with whatever title logic you set below, applied to every company here. If you want each company matched to its own specific title instead, use the bulk paste box in Section 1.)</p>
+        </div>
+
+        <div class="field">
+          <label>How should multiple titles/keywords combine?</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="titleLogic" value="or" checked> Any (OR)</label>
+            <label class="radio-opt"><input type="radio" name="titleLogic" value="and"> All (AND)</label>
+            <label class="radio-opt"><input type="radio" name="titleLogic" value="custom"> Custom boolean expression</label>
+          </div>
+        </div>
+
+        <div class="field" id="titlesListField">
+          <label>Job titles / keywords <span class="tag">optional</span></label>
+          <textarea id="titles" placeholder="One per line or comma-separated — paste from Suggested Job Title Keywords, or type your own, e.g.&#10;VP, Professional Services&#10;Director, OT Cybersecurity"></textarea>
+          <p class="hint">Leave blank to search broadly across each company's open roles instead of specific titles.</p>
+        </div>
+
+        <div class="field" id="titlesBooleanField" style="display:none;">
+          <label>Boolean expression</label>
+          <input type="text" id="titlesBoolean" placeholder='(Director OR VP OR "Senior Manager") AND "OT cyber"'>
+          <p class="hint">Used as a real boolean search query on LinkedIn, Indeed, and Google, which all support AND/OR/quotes natively. Sources without boolean search get the intent interpreted manually.</p>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Scope</legend>
+
+        <div class="field">
+          <label>How recent should postings be?</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="recency" value="7"> Last 7 days</label>
+            <label class="radio-opt"><input type="radio" name="recency" value="14" checked> Last 14 days</label>
+            <label class="radio-opt"><input type="radio" name="recency" value="30"> Last 30 days</label>
+            <label class="radio-opt"><input type="radio" name="recency" value="any"> Any time</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Preferred location / work arrangement <span class="tag">optional</span></label>
+          <input type="text" id="location" placeholder="e.g. Texas or remote">
+        </div>
+
+        <div class="field">
+          <label>Max postings per company/title <span class="tag">optional</span></label>
+          <input type="text" id="maxPer" placeholder="e.g. 5-10 — leave blank for Claude's judgment">
+          <p class="hint">Guidance, not a hard cap. Fewer per combination usually means better-verified results — see the honesty note below.</p>
+        </div>
+
+        <div class="field">
+          <label>Sources to check</label>
+          <div class="check-grid">
+            <label class="check-opt"><input type="checkbox" id="srcLinkedIn" checked> LinkedIn Jobs</label>
+            <label class="check-opt"><input type="checkbox" id="srcIndeed" checked> Indeed</label>
+            <label class="check-opt"><input type="checkbox" id="srcCareers" checked> Company careers pages</label>
+            <label class="check-opt"><input type="checkbox" id="srcGoogle" checked> Google Jobs</label>
+            <label class="check-opt"><input type="checkbox" id="srcGlassdoor"> Glassdoor</label>
+            <label class="check-opt"><input type="checkbox" id="srcZipRecruiter"> ZipRecruiter</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4 · Output</legend>
+
+        <div class="field">
+          <label>Output format</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="outputFormat" value="table" checked> Table in chat</label>
+            <label class="radio-opt"><input type="radio" name="outputFormat" value="excel"> Downloadable Excel file</label>
+          </div>
+        </div>
+
+        <div class="field" id="excelFormattingField" style="display:none;">
+          <label>Color-code by recency (Excel only)?</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="excelFormatting" value="yes" checked> Yes</label>
+            <label class="radio-opt"><input type="radio" name="excelFormatting" value="no"> No</label>
+          </div>
+          <p class="hint">Green = posted in the last few days, yellow = getting older, red = near the edge of your recency window — a quick visual read on freshness.</p>
+        </div>
+      </fieldset>
+
+      <div class="banner">
+        <b>Why this matters:</b> a fabricated job posting is worse than no posting at all — it wastes your time chasing something that doesn't exist. This tool's generated prompt explicitly tells Claude to only report postings it actually finds via live search with a real, working URL, and to report fewer results rather than pad the list. That instruction is built in below and can't be turned off.
+      </div>
+    </div>
+  </div>
+
+  <div class="col" id="outputPanel">
+    <div class="card">
+      <div class="btn-row">
+        <button class="btn-primary" id="copyBtn">Copy prompt</button>
+        <button class="btn-secondary" id="downloadBtn">Download .txt</button>
+      </div>
+      <div id="promptText"><span id="placeholder">Fill in at least one company, job title/keyword, or a parsed row from the bulk paste above to see your prompt appear here.</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const promptTextEl = document.getElementById('promptText');
+
+function val(id){ return document.getElementById(id).value.trim(); }
+function radioVal(name){
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : '';
+}
+function splitList(raw){
+  if(!raw) return [];
+  return raw.split(/[\n,]+/).map(s => s.trim()).filter(Boolean);
+}
+
+function toggleExcelFormattingField(){
+  document.getElementById('excelFormattingField').style.display =
+    radioVal('outputFormat') === 'excel' ? 'block' : 'none';
+}
+
+function toggleTitleLogicField(){
+  const mode = radioVal('titleLogic');
+  document.getElementById('titlesListField').style.display = mode === 'custom' ? 'none' : 'block';
+  document.getElementById('titlesBooleanField').style.display = mode === 'custom' ? 'block' : 'none';
+}
+
+function recencyLabel(v){
+  if(v === '7') return 'posted within the last 7 days';
+  if(v === '14') return 'posted within the last 14 days';
+  if(v === '30') return 'posted within the last 30 days';
+  return 'any posting date — no recency filter';
+}
+
+// --- Bulk paste from tracker: parses pasted rows into (Company, Title) pairs ---
+let pairedRows = [];
+
+function extractFirstTitle(line){
+  const match = line.match(/"([^"]+)"/);
+  return match ? match[1] : '';
+}
+
+function parseBulkPaste(){
+  const raw = document.getElementById('bulkPaste').value;
+  if(!raw.trim()) return;
+  const lines = raw.split(/\n/).map(l => l.trim()).filter(Boolean);
+  lines.forEach(line => {
+    const cells = line.split('\t');
+    const company = cells[0].trim();
+    if(!company) return;
+    // Skip an obvious header row (e.g. "Company" as the literal first cell)
+    if(company.toLowerCase() === 'company') return;
+    const title = extractFirstTitle(line);
+    pairedRows.push({ company, title });
+  });
+  document.getElementById('bulkPaste').value = '';
+  renderPairedPreview();
+  render();
+}
+
+function renderPairedPreview(){
+  const container = document.getElementById('pairedPreview');
+  const field = document.getElementById('pairedPreviewField');
+  if(pairedRows.length === 0){
+    field.style.display = 'none';
+    container.innerHTML = '';
+    return;
+  }
+  field.style.display = 'block';
+  container.innerHTML = '';
+  pairedRows.forEach((pair, idx) => {
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;gap:6px;margin-bottom:6px;align-items:center;';
+    row.innerHTML = `
+      <input type="text" data-idx="${idx}" data-field="company" value="${pair.company.replace(/"/g,'&quot;')}" style="flex:1;padding:6px 8px;font-size:13px;border:1px solid var(--border);border-radius:5px;">
+      <input type="text" data-idx="${idx}" data-field="title" value="${pair.title.replace(/"/g,'&quot;')}" placeholder="(no title parsed)" style="flex:1.4;padding:6px 8px;font-size:13px;border:1px solid var(--border);border-radius:5px;">
+      <button type="button" data-remove="${idx}" style="background:#fbeaea;color:#b23b3b;border:none;border-radius:5px;padding:6px 10px;cursor:pointer;font-size:13px;">×</button>
+    `;
+    container.appendChild(row);
+  });
+  container.querySelectorAll('input').forEach(el => {
+    el.addEventListener('input', (e) => {
+      const idx = parseInt(e.target.dataset.idx);
+      const field = e.target.dataset.field;
+      pairedRows[idx][field] = e.target.value;
+      render();
+    });
+  });
+  container.querySelectorAll('button[data-remove]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.dataset.remove);
+      pairedRows.splice(idx, 1);
+      renderPairedPreview();
+      render();
+    });
+  });
+}
+
+document.getElementById('parseBulkBtn').addEventListener('click', parseBulkPaste);
+document.getElementById('addPairBtn').addEventListener('click', () => {
+  pairedRows.push({ company: '', title: '' });
+  renderPairedPreview();
+});
+
+function buildPrompt(){
+  const companies = splitList(val('companies'));
+  const titleLogic = radioVal('titleLogic');
+  const titles = splitList(val('titles'));
+  const booleanExpr = val('titlesBoolean');
+  const location = val('location');
+  const maxPer = val('maxPer') || "your judgment";
+  const recency = radioVal('recency');
+  const outputFormat = radioVal('outputFormat');
+  const excelFormatting = radioVal('excelFormatting') !== 'no';
+  const pairs = pairedRows.filter(p => p.company);
+
+  const sources = [];
+  if(document.getElementById('srcLinkedIn').checked) sources.push('LinkedIn Jobs');
+  if(document.getElementById('srcIndeed').checked) sources.push('Indeed');
+  if(document.getElementById('srcCareers').checked) sources.push("each company's own careers page");
+  if(document.getElementById('srcGoogle').checked) sources.push('Google Jobs');
+  if(document.getElementById('srcGlassdoor').checked) sources.push('Glassdoor');
+  if(document.getElementById('srcZipRecruiter').checked) sources.push('ZipRecruiter');
+
+  const hasTitleInput = titleLogic === 'custom' ? !!booleanExpr : titles.length > 0;
+
+  if(companies.length === 0 && !hasTitleInput && pairs.length === 0){
+    return null;
+  }
+
+  let lines = [];
+  lines.push(`Please execute this task directly — search, find, and report now, rather than first describing your plan, summarizing what you're about to do, or asking me clarifying questions before starting. If a genuine capability limitation prevents you from completing part of this (e.g., no web search, no file-creation tool for the Excel output), say so plainly and do as much as you actually can — but don't pause to ask permission, outline an approach, or check in before starting the real work.`);
+  lines.push("");
+  lines.push(`I want you to find real, current job postings — not company research, actual open roles with real URLs. Here's what I have:`);
+  lines.push("");
+
+  if(pairs.length > 0){
+    lines.push(`- Specific company/title pairs to search (from my tracker — use the exact title given for that company, not a generic list):`);
+    pairs.forEach(p => {
+      lines.push(`    ${p.company} → ${p.title ? `"${p.title}"` : "(no specific title — search broadly for this company's open roles)"}`);
+    });
+  }
+
+  if(companies.length > 0){
+    lines.push(`- Additional companies to search: ${companies.join(', ')}`);
+  }
+
+  if(titleLogic === 'custom' && booleanExpr){
+    lines.push(`- Job title/keyword logic: use this as a real boolean search expression — ${booleanExpr}`);
+    lines.push(`  Construct the actual search query using this boolean logic (AND/OR/quoted phrases) on LinkedIn, Indeed, and Google, which all support boolean search operators natively. For sources that don't support boolean operators (e.g. a company's own careers page), interpret the expression's intent manually — a posting should satisfy the same logic even if the search box can't take the raw expression.`);
+  } else if(titles.length > 0){
+    if(titleLogic === 'and'){
+      lines.push(`- Job titles/keywords — ALL of the following must be reflected in the title or role description (this is an AND condition, not a list of alternatives): ${titles.join(', ')}`);
+    } else {
+      lines.push(`- Job titles/keywords — ANY of the following (this is an OR condition — match at least one): ${titles.join(', ')}`);
+    }
+  }
+
+  if(companies.length > 0 && (titles.length > 0 || (titleLogic === 'custom' && booleanExpr))){
+    lines.push(`- Search each additional company against the title logic above (or the closest reasonable match at that company) rather than treating the two lists independently.`);
+  } else if(companies.length > 0 && titles.length === 0 && titleLogic !== 'custom'){
+    lines.push(`- No specific titles given for the additional companies — search broadly across each company's currently open roles relevant to a general professional/executive job search context.`);
+  } else if(companies.length === 0 && pairs.length === 0){
+    lines.push(`- No specific companies given — search broadly for these titles/keywords across the job market, not limited to any company list.`);
+  }
+
+  lines.push(`- Recency: only include postings ${recencyLabel(recency)}.`);
+  if(location) lines.push(`- Preferred location / work arrangement: ${location}`);
+  lines.push(`- Roughly how many postings per company/title combination: ${maxPer}`);
+  lines.push(`- Sources to check: ${sources.length > 0 ? sources.join(', ') : "your judgment"}.`);
+
+  lines.push("");
+  lines.push(`CRITICAL — read before responding: only report postings you actually find via live search, each with a real, working URL you can point to. Do not fabricate, guess, extrapolate, or "fill in" postings that seem plausible but weren't actually found. If a company or title combination turns up few or no results, report that honestly (e.g. "no current postings found for X") rather than padding the list to look more complete. If a company's careers page can't be effectively searched (e.g. it requires login or has no public listings page), say so rather than inventing results for it. If a posting's stated recency is ambiguous (e.g. it's syndicated across multiple job boards with different cache dates), say so explicitly rather than picking whichever date looks best.`);
+
+  lines.push("");
+  lines.push(`For each posting found, include:`);
+  lines.push(`1. Job Title — the exact title as posted`);
+  lines.push(`2. Company`);
+  lines.push(`3. Location — as listed on the posting (city/remote/hybrid, etc.)`);
+  lines.push(`4. Posted Date — as stated on the posting, or "date unknown" if the source doesn't show one`);
+  lines.push(`5. Date Confidence — High/Medium/Low, reflecting how certain you are of the Posted Date. High = a single clear, unambiguous date from the primary source. Medium = a reasonable estimate (e.g. only a relative "posted X days ago" indexed date). Low = conflicting or unclear dates across multiple sources, or "date unknown."`);
+  lines.push(`6. Source — which site/board this was found on`);
+  lines.push(`7. URL — the direct link to the posting`);
+
+  lines.push("");
+  lines.push(`Also report near-misses separately, not silently excluded: postings you found that relate to what I'm looking for but don't fully qualify (e.g. right company but wrong seniority level, right role but posting looks expired/closed, right title but outside my recency window). List these in a separate "Near-Misses" section/sheet with a Reason column explaining why each was excluded (e.g. "Below requested seniority — Manager, not Director/VP/Senior Manager", "Recruiting end date has passed", "Posted outside recency window"). This lets me judge for myself whether your bar was right, instead of those postings just disappearing.`);
+
+  lines.push("");
+  if(outputFormat === 'excel'){
+    lines.push(`Format the result as a downloadable Excel workbook (.xlsx). Main "Job Postings" sheet: one row per posting, header row, reasonable column widths, URL column hyperlinked. Second "Near-Misses" sheet: same idea, with the Reason column described above.`);
+    if(excelFormatting){
+      lines.push(`On the main sheet, color-code the Posted Date column by freshness relative to today: green for the most recent (roughly the first third of my recency window), yellow for the middle third, red/orange for the oldest (nearing the edge of my recency window or "date unknown"). Also color-code the Date Confidence column: green for High, yellow for Medium, red for Low. Add a brief Notes tab explaining both color keys.`);
+    }
+  } else {
+    lines.push(`Present the main results as a table directly in your response — no file needed. Group by company if I gave companies, or by title/keyword if I only gave titles. Follow with a separate "Near-Misses" section using the same format described above.`);
+  }
+
+  return lines.join("\n");
+}
+
+function render(){
+  const prompt = buildPrompt();
+  if(prompt === null){
+    promptTextEl.innerHTML = '<span id="placeholder">Fill in at least one company, job title/keyword, or a parsed row from the bulk paste above to see your prompt appear here.</span>';
+  } else {
+    promptTextEl.textContent = prompt;
+  }
+}
+
+document.querySelectorAll('input, textarea').forEach(el => {
+  el.addEventListener('input', render);
+  el.addEventListener('change', render);
+});
+document.querySelectorAll('input[name="outputFormat"]').forEach(el => {
+  el.addEventListener('change', () => { toggleExcelFormattingField(); render(); });
+});
+document.querySelectorAll('input[name="titleLogic"]').forEach(el => {
+  el.addEventListener('change', () => { toggleTitleLogicField(); render(); });
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const prompt = buildPrompt();
+  if(!prompt) return;
+  navigator.clipboard.writeText(prompt).then(() => {
+    const btn = document.getElementById('copyBtn');
+    const original = btn.textContent;
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = original, 1500);
+  }).catch(() => {
+    alert('Clipboard blocked by your browser — use the Download .txt button instead.');
+  });
+});
+
+document.getElementById('downloadBtn').addEventListener('click', () => {
+  const prompt = buildPrompt();
+  if(!prompt) return;
+  const blob = new Blob([prompt], {type: 'text/plain'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'job_posting_finder_prompt.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+toggleExcelFormattingField();
+toggleTitleLogicField();
+render();
+</script>
+</body>
+</html>
