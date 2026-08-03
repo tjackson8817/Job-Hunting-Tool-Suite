@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Job Hunting Tool Suite</title>
+<title>JobRadar — Job Hunting Tool Suite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
@@ -30,6 +30,15 @@
   }
   header h1{margin:0 0 10px 0;font-size:32px;}
   header p{margin:0 auto;opacity:.88;font-size:16px;max-width:560px;line-height:1.5;}
+  .logo-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:4px;
+  }
+  .logo-row svg{flex-shrink:0;}
+  .logo-row h1{margin:0;}
   .wrap{
     max-width:1000px;
     margin:0 auto;
@@ -132,7 +141,18 @@
 <body>
 
 <header>
-  <h1>Job Hunting Tool Suite</h1>
+  <div class="logo-row">
+    <svg width="52" height="52" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JobRadar logo">
+      <circle cx="50" cy="50" r="42" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
+      <circle cx="50" cy="50" r="29" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
+      <circle cx="50" cy="50" r="16" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.75"/>
+      <path d="M50 50 L50 8 A42 42 0 0 1 79.7 20.3 Z" fill="#3fd6bf" opacity="0.4"/>
+      <circle cx="76" cy="24" r="4.5" fill="#3fd6bf"/>
+      <line x1="50" y1="50" x2="76" y2="24" stroke="#3fd6bf" stroke-width="1.5"/>
+    </svg>
+    <h1>JobRadar</h1>
+  </div>
+  <p style="font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;opacity:.7;margin:0 0 14px 0;">Job Hunting Tool Suite</p>
   <p>Four standalone tools that turn a name-and-industry hunch into researched companies, real postings, tailored applications, and drafted outreach — each one works on its own, and together they cover a full job search.</p>
 </header>
 
