@@ -23,6 +23,10 @@ Notes and the new Job Posting mode, respectively; Interview Prep Guide
 Builder added as Step 4 and Steps 3a/3b renumbering applied August 12,
 2026; Salary Negotiator added as Step 5 August 12-13, 2026)
 
+> **Before You Start — One Claude Setting**
+>
+> In Claude, go to **Settings → Capabilities** and toggle **"Code execution and file creation"** on. This is what lets Claude actually build the Excel or Word file a tool asks for, instead of just describing it in the chat. Available on Free, Pro, Max, Team, and Enterprise plans — on web, desktop, and mobile. (Web search is the other setting you'll need; see the full settings table below.)
+
 ## What This Suite Is
 
 This is a set of eight free, standalone web tools that turn a job search
