@@ -4,7 +4,7 @@
 
 User Guide
 
-*A Getting Started walkthrough, plus a detailed guide to all eight
+*A Getting Started walkthrough, plus a detailed guide to all nine
 tools*
 
 Live Suite URL (click below):
@@ -21,7 +21,10 @@ thinking it persisted); Outreach Message Builder and Recruiter Message
 Sanity Check sections updated August 12, 2026 for Message Goal/Context
 Notes and the new Job Posting mode, respectively; Interview Prep Guide
 Builder added as Step 4 and Steps 3a/3b renumbering applied August 12,
-2026; Salary Negotiator added as Step 5 August 12-13, 2026)
+2026; Salary Negotiator added as Step 5 August 12-13, 2026; Career Path
+Discovery Prompt Builder added as Step 0 August 17, 2026, with Pivot
+Positioning Notes added to Resume & Cover Letter Tailoring and Objection
+Reframing added to Interview Prep Guide Builder the same day)
 
 > **Before You Start — One Claude Setting**
 >
@@ -29,29 +32,30 @@ Builder added as Step 4 and Steps 3a/3b renumbering applied August 12,
 
 ## What This Suite Is
 
-This is a set of eight free, standalone web tools that turn a job search
+This is a set of nine free, standalone web tools that turn a job search
 — or just staying visible in your field, or protecting yourself from
 scams while you search — into a repeatable process instead of a blank
-page every time. Six of them cover the job-search funnel end to end:
-finding and ranking the right companies, checking who’s actually hiring
-right now, tailoring a resume and cover letter to a real posting,
-drafting the outreach messages to actually reach someone, building a
-real prep guide once an interview actually lands, and negotiating the
-actual offer once one comes in. A seventh is a separate, ongoing tool
-for sharing on-brand articles on LinkedIn, whether or not you’re
-actively job hunting. An eighth screens incoming recruiter messages or
-job postings for known scam patterns, since fake recruiter outreach and
-fake job listings have both become common.
+page every time. Seven of them cover the job-search funnel end to end:
+figuring out which direction to target if you're not sure yet, finding
+and ranking the right companies, checking who’s actually hiring right
+now, tailoring a resume and cover letter to a real posting, drafting the
+outreach messages to actually reach someone, building a real prep guide
+once an interview actually lands, and negotiating the actual offer once
+one comes in. An eighth is a separate, ongoing tool for sharing on-brand
+articles on LinkedIn, whether or not you’re actively job hunting. A
+ninth screens incoming recruiter messages or job postings for known scam
+patterns, since fake recruiter outreach and fake job listings have both
+become common.
 
-Seven of the eight tools work the same simple way: you fill in a short
+Eight of the nine tools work the same simple way: you fill in a short
 form on a web page, it builds a complete, ready-to-use prompt, you copy
 that prompt into a conversation with Claude, and Claude does the actual
-research, writing, or drafting. The eighth — Recruiter Message & Job
+research, writing, or drafting. The ninth — Recruiter Message & Job
 Posting Sanity Check — is different on purpose: it runs the entire check
 in your browser and hands you a finished result immediately, with no
 separate Claude conversation required.
 
-**Disclaimer:** These tools are aids, not authorities. The seven
+**Disclaimer:** These tools are aids, not authorities. The eight
 prompt-building tools hand off to Claude for the actual research,
 writing, or drafting — review every output before relying on it, since
 researched facts (company details, job postings, interviewer
@@ -69,16 +73,19 @@ as a starting point for your own judgment, not a substitute for it.
 Everything in this suite falls into one of two groups, and it helps to
 know which before you open anything:
 
-- **The 6-step funnel (Steps 1–5):** Target Company Prompt Builder (Step
-  1, Research) runs first — everything downstream depends on the ranked
-  tracker it produces. Job Posting Finder (Step 2, Verify) needs that
-  tracker’s Suggested Priority Rank to know which companies are worth
-  searching. Resume & Cover Letter Tailoring (Step 3a) and Outreach
-  Message Builder (Step 3b) — both Apply/Connect — have no fixed order
-  between them — network first and tailor your resume once a real
-  opening exists, or find a posting first and tailor immediately, then
-  follow up with outreach. Both are legitimate. Interview Prep Guide
-  Builder (Step 4, Interview) comes after Step 3 actually lands an
+- **The 7-step funnel (Steps 0–5):** Career Path Discovery Prompt
+  Builder (Step 0, Discover) is optional and comes first only if you
+  need it — skip straight to Step 1 if you already know your target.
+  Target Company Prompt Builder (Step 1, Research) is where the funnel
+  actually starts for most people — everything downstream depends on the
+  ranked tracker it produces. Job Posting Finder (Step 2, Verify) needs
+  that tracker’s Suggested Priority Rank to know which companies are
+  worth searching. Resume & Cover Letter Tailoring (Step 3a) and
+  Outreach Message Builder (Step 3b) — both Apply/Connect — have no
+  fixed order between them — network first and tailor your resume once a
+  real opening exists, or find a posting first and tailor immediately,
+  then follow up with outreach. Both are legitimate. Interview Prep
+  Guide Builder (Step 4, Interview) comes after Step 3 actually lands an
   interview, whichever path got you there. Salary Negotiator (Step 5,
   Negotiate) comes after Step 4 actually produces an offer — it’s the
   direct sequel to the salary-range coaching in Interview Prep’s
@@ -89,7 +96,7 @@ know which before you open anything:
   incoming messages or postings) aren’t steps in the funnel — use them
   any time, whether or not you’re actively job hunting.
 
-## How Seven of the Eight Tools Work
+## How Eight of the Nine Tools Work
 
 Every tool except Recruiter Message & Job Posting Sanity Check follows
 the identical mechanical pattern, so it’s worth understanding once
@@ -120,12 +127,12 @@ waiting.*
 
 ## Claude Settings You’ll Need
 
-Two Claude capabilities cover every requirement across all eight tools —
+Two Claude capabilities cover every requirement across all nine tools —
 check this once rather than hunting per tool:
 
 | **Setting**                      | **Needed For**                                                                                                                                                                                                                                                                                                                                                   | **Where to Find It**                                                                                                                                         |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
+| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
 | Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator), plus LinkedIn Article Share Builder if artwork generation is on                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
 | Neither                          | Recruiter Message & Job Posting Sanity Check — it never leaves your browser                                                                                                                                                                                                                                                                                      | N/A — nothing to enable                                                                                                                                      |
 
@@ -137,6 +144,12 @@ a genuinely useful result:
 - Have ready: your target industry or a few companies you already know,
   your resume text, and (optionally) a LinkedIn contacts export if you
   want warm-introduction matching later.
+
+- Not sure what to target yet? Start with Career Path Discovery Prompt
+  Builder instead — it analyzes your real background and surfaces
+  realistic alternative paths, then points you back to Step 1 once
+  you've picked one. Already know your target? Skip straight to the next
+  bullet.
 
 - Start with Target Company Prompt Builder. Fill in your starting point
   and purpose, generate the prompt, run it in Claude with Web search on,
@@ -173,14 +186,87 @@ a genuinely useful result:
 
 | **Tool**                                         | **Step**                | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Output**                                                                      | **Key Claude Setting**                                           |
 |--------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|
+| **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces 8-12 realistic alternative paths — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → ranked paths (chat only, no file)                  | Web search recommended, not required                             |
 | **Target Company Prompt Builder**                | Step 1 · Research       | Three linked prompts on one page: an optional wide-net **Bulk Company Pull** (cheap, flat candidate list to prune by hand), the main **Full Research Tracker** (researches and ranks companies via a competitor-cascade discovery method — not NAICS-code search; builds a formatted Excel tracker, 31–36 columns, with a computed Suggested Priority Rank; optional manual two-tier output), and **LinkedIn Contact Enrichment** for warm introduction paths. | Prompt(s) → paste into Claude → .xlsx tracker (+ optional flat bulk-pull .xlsx) | Web search; Code execution for the .xlsx                         |
 | **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → postings table or .xlsx                            | Web search (required); Code execution if .xlsx chosen            |
-| **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
+| **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
 | **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution only if .docx chosen                              |
-| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description; never writes your actual behavioral stories or invents detail about a named interviewer.                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
+| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name; never writes your actual behavioral stories or invents detail about a named interviewer.                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
 | **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (table or .docx)                 | Web search; Code execution if .docx chosen                       |
 | **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the 5 most on-brand, recent, real articles — ranked automatically — drafts the post for whichever you pick, and optionally builds matching artwork.                                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → post copy (+ optional .png)                        | Web search (required); Code execution if artwork is on           |
 | **Recruiter Message & Job Posting Sanity Check** | Ongoing · Safety        | Screens a recruiter message OR a job posting (pick a mode) against known scam patterns in-browser — flags unnamed intermediaries, upfront fees, reshipping/payment-processing scams, employer mismatches, AI-generated photos, and more, plus a mode-appropriate follow-up (a reply draft for messages, a pre-application checklist for postings) on borderline results.                                                                                       | Finished result immediately — no Claude chat needed                             | None — runs entirely client-side                                 |
+
+## 0. Career Path Discovery Prompt Builder
+
+**STEP 0 · DISCOVER (OPTIONAL)**
+
+For when you're not sure what to target yet — every other tool in the
+suite assumes you already know the role you're chasing. Paste your
+career background, and the generated prompt asks Claude to analyze it
+like a career strategist and executive recruiter would: identifying your
+real strengths and transferable skills, then surfacing realistic
+alternative career paths grounded in evidence, not generic advice. Once
+you've picked a direction, it hands off cleanly to Step 1 — it doesn't
+try to also rewrite your resume or coach you through objections, since
+Resume & Cover Letter Tailoring and Interview Prep Guide Builder already
+do that well.
+
+### Key Sections & Options
+
+- **Your background (required):** paste your resume, LinkedIn
+  About/Experience sections, or a written summary — not a file upload,
+  and no length limit. Real detail (specific accomplishments, numbers,
+  technologies, team sizes) produces a sharper analysis than
+  resume-objective boilerplate.
+
+- **Constraints and scope (all optional):** hard constraints Claude
+  filters every recommendation through (not just weighs loosely), a
+  minimum compensation floor, whether to restrict paths to your current
+  industry, and whether to rule out paths needing years of additional
+  schooling or an entry-level restart (on by default, but an unusually
+  compelling exception can still be flagged).
+
+- **Output scope toggles:** how many paths to surface (8–12 by default),
+  and independent on/off switches for a ranked fit table, a "Hidden
+  Opportunities" section (roles at the intersection of two or more of
+  your capabilities, not just title-matching), a Final Recommendation
+  summary, and next-step routing to the rest of the suite.
+
+### Claude Settings Required
+
+- Web search — recommended, not required, for checking current role and
+  salary norms
+
+- Code execution and file creation — not needed; this tool's output is
+  chat text only, no downloadable file
+
+### What You Get Back
+
+A Career Profile Assessment and Career Capital breakdown grounded in
+your pasted background, 8–12 alternative career paths (mixing adjacent
+moves, less-obvious transferable roles, leadership and IC options, and
+paths outside your current industry unless restricted), and — depending
+on which toggles you left on — a ranked fit table, a Hidden Opportunities
+section, a Final Recommendation summary, and a pointer for your top 3
+paths toward the specific suite tool to run next.
+
+### Worth Knowing
+
+- This tool deliberately stops at "here's what to go after and why" — it
+  doesn't rewrite your resume or LinkedIn (that's Resume & Cover Letter
+  Tailoring) and doesn't prep you for objections about a pivot (that's
+  Interview Prep Guide Builder's Objection Reframing).
+
+- If a recommended path doesn't trace back to specific evidence in what
+  you pasted, push back on it directly in the conversation — the
+  generated prompt instructs Claude to tie every recommendation to real
+  evidence, not generic career advice.
+
+**Open the tool:**
+<https://tjackson8817.github.io/Career-Path-Discovery/prompt_builder.html>
+
+**Full user guide:**
+<https://github.com/tjackson8817/Career-Path-Discovery/blob/main/Prompt_Builder_User_Guide.md>
 
 ## 1. Target Company Prompt Builder
 
@@ -427,11 +513,20 @@ acceptable under any framing.
 - **Your resume:** paste your complete resume text, plus any optional
   additional context not yet reflected in it.
 
-- **What to generate:** four independent checkboxes — ATS/Keyword Gap
-  Analysis, Resume Bullet Rewrite Suggestions, Cover Letter Draft, and
-  Qualifications Match Letter (T-Letter, always kept to 1 page). Cover
-  letter tone (Warm/Formal/Direct) and length (1 page standard, or 2–3
-  pages for executive/federal roles) are both selectable.
+- **What to generate:** five independent checkboxes — ATS/Keyword Gap
+  Analysis, Resume Bullet Rewrite Suggestions, Cover Letter Draft,
+  Qualifications Match Letter (T-Letter, always kept to 1 page), and
+  Pivot Positioning Notes. Cover letter tone (Warm/Formal/Direct) and
+  length (1 page standard, or 2–3 pages for executive/federal roles) are
+  both selectable.
+
+- **Pivot Positioning Notes (default: off):** for when this posting is a
+  genuine change of direction from your resume's titles, not a same-lane
+  application. Names what to emphasize, what to minimize or reframe
+  (never hide), any real skill/certification gaps worth naming, and a
+  short honest answer for *why this move* — grounded in a real
+  connective thread, not a generic passion statement. Bound by the same
+  no-invention rule as everything else this tool produces.
 
 - **Apply the suggestions directly:** two additional checkboxes, nested
   under Gap Analysis and Bullet Rewrites respectively, produce a
@@ -571,19 +666,26 @@ Message Builder (Step 3b), closing the loop.
   switches the entire field set and the entire generated guide, not just
   a couple of options — **Recruiter Screen** (a qualifications T-chart,
   a tight “tell me about yourself” script, coached answers for the
-  gap/leaving question and the salary question, standard logistics
-  questions, recruiter-appropriate questions to ask), **Hiring Manager
-  Interview** (built for a real, time-boxed video call — company/role
-  research, a resume-to-JD gap map, interviewer research, a video-call
+  gap/leaving question and the salary question, objection reframing for
+  any concerns you named, standard logistics questions, recruiter-
+  appropriate questions to ask), **Hiring Manager Interview** (built for
+  a real, time-boxed video call — company/role research, a resume-to-JD
+  gap map, objection reframing, interviewer research, a video-call
   logistics checklist tied to your actual platform, pacing scaled to
   your actual call length, your top 3-4 STAR-structured stories rather
   than an exhaustive list, and HM-appropriate questions to ask), and
-  **General/Other** (the fuller original structure, as a fallback for
-  technical rounds, panels, and final rounds).
+  **General/Other** (the fuller original structure — including its own
+  objection reframing — as a fallback for technical rounds, panels, and
+  final rounds).
 
 - **Shared inputs across all three modes:** company, role, job
   description, and your resume — paste text, or attach the files
-  directly when you paste the generated prompt into Claude instead.
+  directly when you paste the generated prompt into Claude instead. An
+  optional field for naming what you're worried a hiring manager will
+  hold against you (a gap, a pivot, short tenures, overqualification)
+  drives a dedicated Objection Reframing section in every mode — left
+  blank, that section falls back to general guidance instead of
+  inventing your situation.
 
 - **Mode-specific fields:** Recruiter Screen adds location (for salary
   research grounding), an optional reason for a gap or departure, and an
@@ -628,6 +730,11 @@ you walk in or join the call, and full detail below it.
   gap or departure, your notice period, work authorization status — the
   guide never invents these. Left blank, it gives general guidance on
   structure instead.
+
+- **Objection reframing stays honest, not spin.** Every reframe for a
+  named concern is grounded in something real from your resume — if a
+  concern genuinely doesn't have a strong answer, the guide says so
+  rather than manufacturing one.
 
 - Interviewer lists are tracked separately per mode — switching from
   Hiring Manager to General/Other (or back) won’t carry interviewers
