@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>JobRadar — Job Hunting Tool Suite</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="9 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
+<meta name="description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
@@ -16,7 +16,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/">
 <meta property="og:title" content="JobRadar — Job Hunting Tool Suite">
-<meta property="og:description" content="9 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
+<meta property="og:description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
 <meta property="og:image" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -24,7 +24,7 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="JobRadar — Job Hunting Tool Suite">
-<meta name="twitter:description" content="9 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
+<meta name="twitter:description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
 <meta name="twitter:image" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/og-image.png">
 
 <style>
@@ -72,8 +72,17 @@
     grid-template-columns:repeat(2, 1fr);
     gap:22px;
   }
+  .grid-3{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
   @media (max-width:720px){
     .grid{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:1fr;}
+  }
+  @media (max-width:960px) and (min-width:721px){
+    .grid-3{grid-template-columns:repeat(2, 1fr);}
   }
   .card{
     background:var(--card);
@@ -264,9 +273,19 @@
   </div>
 
   <h3 style="margin:40px 0 4px 0; color:var(--navy); font-size:17px;">Also useful — outside the job-search funnel</h3>
-  <p style="margin:0 0 18px 0; font-size:14px; color:var(--muted); line-height:1.55;">These two aren't steps in the funnel above. One helps you stay visible on LinkedIn whether or not you're actively job hunting; the other helps you screen suspicious recruiter outreach the moment it lands in your inbox.</p>
+  <p style="margin:0 0 18px 0; font-size:14px; color:var(--muted); line-height:1.55;">These three aren't steps in the funnel above. One gets your LinkedIn profile itself into job-search-ready shape; another helps you stay visible once it is; the third helps you screen suspicious recruiter outreach the moment it lands in your inbox.</p>
 
-  <div class="grid">
+  <div class="grid-3">
+
+    <div class="card">
+      <span class="step-badge">ONGOING · PROFILE</span>
+      <h2>LinkedIn Profile Builder</h2>
+      <p>Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers.</p>
+      <div class="btn-row">
+        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/LinkedIn-Profile-Builder/prompt_builder.html">Open Tool →</a>
+        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/LinkedIn-Profile-Builder/blob/main/Prompt_Builder_User_Guide.md">User Guide</a>
+      </div>
+    </div>
 
     <div class="card">
       <span class="step-badge">ONGOING · PERSONAL BRAND</span>
