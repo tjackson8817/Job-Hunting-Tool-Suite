@@ -4,7 +4,7 @@
 
 User Guide
 
-*A Getting Started walkthrough, plus a detailed guide to all nine
+*A Getting Started walkthrough, plus a detailed guide to all ten
 tools*
 
 Live Suite URL (click below):
@@ -24,7 +24,8 @@ Builder added as Step 4 and Steps 3a/3b renumbering applied August 12,
 2026; Salary Negotiator added as Step 5 August 12-13, 2026; Career Path
 Discovery Prompt Builder added as Step 0 August 17, 2026, with Pivot
 Positioning Notes added to Resume & Cover Letter Tailoring and Objection
-Reframing added to Interview Prep Guide Builder the same day)
+Reframing added to Interview Prep Guide Builder the same day; LinkedIn
+Profile Builder added as a third ongoing tool August 17, 2026)
 
 > **Before You Start — One Claude Setting**
 >
@@ -32,7 +33,7 @@ Reframing added to Interview Prep Guide Builder the same day)
 
 ## What This Suite Is
 
-This is a set of nine free, standalone web tools that turn a job search
+This is a set of ten free, standalone web tools that turn a job search
 — or just staying visible in your field, or protecting yourself from
 scams while you search — into a repeatable process instead of a blank
 page every time. Seven of them cover the job-search funnel end to end:
@@ -41,21 +42,22 @@ and ranking the right companies, checking who’s actually hiring right
 now, tailoring a resume and cover letter to a real posting, drafting the
 outreach messages to actually reach someone, building a real prep guide
 once an interview actually lands, and negotiating the actual offer once
-one comes in. An eighth is a separate, ongoing tool for sharing on-brand
-articles on LinkedIn, whether or not you’re actively job hunting. A
-ninth screens incoming recruiter messages or job postings for known scam
-patterns, since fake recruiter outreach and fake job listings have both
-become common.
+one comes in. The remaining three are ongoing tools, independent of
+where you are in the funnel: one optimizes your LinkedIn profile itself
+for the job search, another finds and drafts on-brand articles to keep
+you visible on LinkedIn, and the third screens incoming recruiter
+messages or job postings for known scam patterns, since fake recruiter
+outreach and fake job listings have both become common.
 
-Eight of the nine tools work the same simple way: you fill in a short
+Eight of the ten tools work the same simple way: you fill in a short
 form on a web page, it builds a complete, ready-to-use prompt, you copy
 that prompt into a conversation with Claude, and Claude does the actual
-research, writing, or drafting. The ninth — Recruiter Message & Job
+research, writing, or drafting. The tenth — Recruiter Message & Job
 Posting Sanity Check — is different on purpose: it runs the entire check
 in your browser and hands you a finished result immediately, with no
 separate Claude conversation required.
 
-**Disclaimer:** These tools are aids, not authorities. The eight
+**Disclaimer:** These tools are aids, not authorities. The nine
 prompt-building tools hand off to Claude for the actual research,
 writing, or drafting — review every output before relying on it, since
 researched facts (company details, job postings, interviewer
@@ -91,12 +93,13 @@ know which before you open anything:
   direct sequel to the salary-range coaching in Interview Prep’s
   Recruiter Screen mode, for once a real number is on the table.
 
-- **The 2 ongoing tools:** LinkedIn Article Share Builder (staying
-  visible) and Recruiter Message & Job Posting Sanity Check (screening
-  incoming messages or postings) aren’t steps in the funnel — use them
-  any time, whether or not you’re actively job hunting.
+- **The 3 ongoing tools:** LinkedIn Profile Builder (optimizing your
+  profile itself for the job search), LinkedIn Article Share Builder
+  (staying visible), and Recruiter Message & Job Posting Sanity Check
+  (screening incoming messages or postings) aren’t steps in the funnel —
+  use them any time, whether or not you’re actively job hunting.
 
-## How Eight of the Nine Tools Work
+## How Eight of the Ten Tools Work
 
 Every tool except Recruiter Message & Job Posting Sanity Check follows
 the identical mechanical pattern, so it’s worth understanding once
@@ -127,13 +130,13 @@ waiting.*
 
 ## Claude Settings You’ll Need
 
-Two Claude capabilities cover every requirement across all nine tools —
+Two Claude capabilities cover every requirement across all ten tools —
 check this once rather than hunting per tool:
 
 | **Setting**                      | **Needed For**                                                                                                                                                                                                                                                                                                                                                   | **Where to Find It**                                                                                                                                         |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
-| Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator), plus LinkedIn Article Share Builder if artwork generation is on                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
+| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms), LinkedIn Profile Builder (recommended, not required — for researching current in-demand skills) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
+| Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator), plus LinkedIn Article Share Builder if artwork generation is on, plus LinkedIn Profile Builder if the profile banner images are on                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
 | Neither                          | Recruiter Message & Job Posting Sanity Check — it never leaves your browser                                                                                                                                                                                                                                                                                      | N/A — nothing to enable                                                                                                                                      |
 
 ## Your First Run
@@ -178,9 +181,10 @@ a genuinely useful result:
   give it the offer details you actually have, and only fill in a
   competing offer if you genuinely have one.
 
-- Whenever you want to post something on LinkedIn or a recruiter message
-  or job posting looks off, the two ongoing tools are there independent
-  of where you are in the funnel above.
+- Whenever your LinkedIn profile itself needs work, or you want to post
+  something, or a recruiter message or job posting looks off, the three
+  ongoing tools are there independent of where you are in the funnel
+  above.
 
 ## Quick Reference
 
@@ -193,6 +197,7 @@ a genuinely useful result:
 | **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution only if .docx chosen                              |
 | **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name; never writes your actual behavioral stories or invents detail about a named interviewer.                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
 | **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (table or .docx)                 | Web search; Code execution if .docx chosen                       |
+| **LinkedIn Profile Builder**                     | Ongoing · Profile       | Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers. Skills are researched against real current demand, never a canned list; every quantified bullet uses a real number or falls back to a strong qualitative one.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Prompt → paste into Claude → profile text (+ optional .png banners)             | Web search recommended, not required; Code execution if banners chosen |
 | **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the 5 most on-brand, recent, real articles — ranked automatically — drafts the post for whichever you pick, and optionally builds matching artwork.                                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → post copy (+ optional .png)                        | Web search (required); Code execution if artwork is on           |
 | **Recruiter Message & Job Posting Sanity Check** | Ongoing · Safety        | Screens a recruiter message OR a job posting (pick a mode) against known scam patterns in-browser — flags unnamed intermediaries, upfront fees, reshipping/payment-processing scams, employer mismatches, AI-generated photos, and more, plus a mode-appropriate follow-up (a reply draft for messages, a pre-application checklist for postings) on borderline results.                                                                                       | Finished result immediately — no Claude chat needed                             | None — runs entirely client-side                                 |
 
@@ -827,7 +832,80 @@ the top.
 **Full user guide:**
 [<u>https://github.com/tjackson8817/Salary-Negotiator/blob/main/Salary_Negotiator_User_Guide.md</u>](https://github.com/tjackson8817/Salary-Negotiator/blob/main/Salary_Negotiator_User_Guide.md)
 
-## 7. LinkedIn Article Share Builder
+## 7. LinkedIn Profile Builder
+
+**ONGOING · PROFILE**
+
+Optimizes your headline, About section, experience descriptions, and
+skills specifically for the job search — recruiter-searchable,
+ATS-ready, and built around LinkedIn's real current character limits.
+Built for mid-level and upper-level management, regardless of industry
+or function. A standalone tool, not part of the Step 0–5 funnel, since
+it's something you'd reach for independent of where you are in an
+active application process.
+
+### Key Sections & Options
+
+- **Your background:** paste your resume/professional background
+  (required, unless you attach a file instead — see below), your current
+  LinkedIn profile text (optional, preserves existing voice), target
+  role and industry, management level, and an optional preferred custom
+  URL.
+
+- **Attach a file instead of pasting:** a checkbox lets you skip the
+  text fields and attach your resume and/or a downloaded LinkedIn
+  profile PDF directly to the Claude message instead — same pattern as
+  attaching a job description or resume file in Resume & Cover Letter
+  Tailoring or Interview Prep Guide Builder.
+
+- **What to generate:** seven independent checkboxes — Headline, About
+  section, Experience rewrites (adjustable count of positions), Skills,
+  Custom URL suggestion, Recommendation Request Guidance, and three
+  profile banner images.
+
+### Claude Settings Required
+
+- Web search — recommended, not required, for researching current
+  in-demand skills for your target role/industry
+
+- Code execution and file creation — only if the profile banner images
+  are on
+
+### What You Get Back
+
+A chat response organized by whichever sections you toggled on, each
+with its character count stated so you can confirm it fits LinkedIn's
+real limit before pasting it in, plus three downloadable `.png` banners
+if requested. No separate downloadable document for the text sections.
+
+### Worth Knowing
+
+- **Nothing is invented.** A real number, dollar figure, or percentage
+  leads a bullet only where one genuinely exists in your background — a
+  strong qualitative bullet is always the correct substitute for a
+  fabricated metric, never the other way around.
+
+- **Skills are researched, not recited.** The prompt instructs Claude to
+  ground the skills list in real current hiring signal for your specific
+  target role and industry, and to only include a skill if something in
+  your actual background supports it — not a static "top skills" list
+  memorized from training.
+
+- **Recommendation guidance is never ghostwritten.** It tells you who to
+  ask and what real talking points to hand them — putting fabricated
+  words in a real colleague's mouth isn't acceptable under any framing.
+
+- Banner image generation and the skills-research step both depend on
+  capabilities specific to Claude — running the prompt in a different AI
+  tool will still produce the text sections, but likely not those two.
+
+**Open the tool:**
+<https://tjackson8817.github.io/LinkedIn-Profile-Builder/prompt_builder.html>
+
+**Full user guide:**
+<https://github.com/tjackson8817/LinkedIn-Profile-Builder/blob/main/Prompt_Builder_User_Guide.md>
+
+## 8. LinkedIn Article Share Builder
 
 **ONGOING · PERSONAL BRAND**
 
@@ -891,7 +969,7 @@ downloadable .png, not just a description of one.
 **Full user guide:**
 [<u>https://github.com/tjackson8817/LinkedIN-Article-Share/blob/main/LinkedIn_Article_Share_User_Guide.md</u>](https://github.com/tjackson8817/LinkedIN-Article-Share/blob/main/LinkedIn_Article_Share_User_Guide.md)
 
-## 8. Recruiter Message & Job Posting Sanity Check
+## 9. Recruiter Message & Job Posting Sanity Check
 
 **ONGOING · SAFETY CHECK**
 
