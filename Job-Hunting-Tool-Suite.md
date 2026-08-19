@@ -25,7 +25,9 @@ Builder added as Step 4 and Steps 3a/3b renumbering applied August 12,
 Discovery Prompt Builder added as Step 0 August 17, 2026, with Pivot
 Positioning Notes added to Resume & Cover Letter Tailoring and Objection
 Reframing added to Interview Prep Guide Builder the same day; LinkedIn
-Profile Builder added as a third ongoing tool August 17, 2026)
+Profile Builder added as a third ongoing tool August 17, 2026; Target
+Company Prompt Builder section updated August 18, 2026 to add the
+Department Contact Finder step)
 
 > **Before You Start — One Claude Setting**
 >
@@ -191,7 +193,7 @@ a genuinely useful result:
 | **Tool**                                         | **Step**                | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Output**                                                                      | **Key Claude Setting**                                           |
 |--------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|
 | **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces 8-12 realistic alternative paths — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → ranked paths (chat only, no file)                  | Web search recommended, not required                             |
-| **Target Company Prompt Builder**                | Step 1 · Research       | Three linked prompts on one page: an optional wide-net **Bulk Company Pull** (cheap, flat candidate list to prune by hand), the main **Full Research Tracker** (researches and ranks companies via a competitor-cascade discovery method — not NAICS-code search; builds a formatted Excel tracker, 31–36 columns, with a computed Suggested Priority Rank; optional manual two-tier output), and **LinkedIn Contact Enrichment** for warm introduction paths. | Prompt(s) → paste into Claude → .xlsx tracker (+ optional flat bulk-pull .xlsx) | Web search; Code execution for the .xlsx                         |
+| **Target Company Prompt Builder**                | Step 1 · Research       | Four linked prompts on one page: an optional wide-net **Bulk Company Pull** (cheap, flat candidate list to prune by hand), the main **Full Research Tracker** (researches and ranks companies via a competitor-cascade discovery method — not NAICS-code search; builds a formatted Excel tracker, 31–36 columns, with a computed Suggested Priority Rank; optional manual two-tier output), **LinkedIn Contact Enrichment** for warm introduction paths, and **Department Contact Finder** for named, tier-ranked contacts at a company via live web search. | Prompt(s) → paste into Claude → .xlsx tracker (+ optional flat bulk-pull .xlsx / department-contacts .xlsx) | Web search; Code execution for the .xlsx                         |
 | **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → postings table or .xlsx                            | Web search (required); Code execution if .xlsx chosen            |
 | **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
 | **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution only if .docx chosen                              |
@@ -277,13 +279,14 @@ paths toward the specific suite tool to run next.
 
 **STEP 1 · RESEARCH**
 
-One page, three linked prompts, each with its own Copy/Download buttons
+One page, four linked prompts, each with its own Copy/Download buttons
 and output panel: an optional **Bulk Company Pull**, the main **Full
-Research Tracker**, and **LinkedIn Contact Enrichment**. Together they
-turn a starting point — company names you know, an industry description,
-NAICS codes, or any combination — into ranked, researched target
-companies. The Full Research Tracker’s output (a fully formatted Excel
-tracker) is the foundation everything else in the funnel depends on.
+Research Tracker**, **LinkedIn Contact Enrichment**, and **Department
+Contact Finder**. Together they turn a starting point — company names
+you know, an industry description, NAICS codes, or any combination —
+into ranked, researched target companies with real named contacts. The
+Full Research Tracker’s output (a fully formatted Excel tracker) is the
+foundation everything else in the funnel depends on.
 
 ### Key Sections & Options
 
@@ -340,6 +343,15 @@ tracker) is the foundation everything else in the funnel depends on.
   Doesn’t touch or require the main tracker; run it as a follow-up once
   you have a shortlist.
 
+- **Department Contact Finder:** the fourth prompt on the page — finds
+  *named individuals* at a target company (15 or fewer) who work in or
+  near a role/department you specify, sourced from live web search
+  rather than your own contacts. Every result is labeled Tier 1 (Exact),
+  Tier 2 (Adjacent), or Tier 3 (Umbrella) so a loosely-related match is
+  never presented as if it's the exact team. This is the fulfillment
+  step for the main tracker's Key Contacts / Priority Titles column,
+  which often comes back as a placeholder rather than a real name.
+
 ### Claude Settings Required
 
 - Web search — for live company research
@@ -355,6 +367,10 @@ Full Research Tracker returns a fully formatted workbook — one row per
 company, 31–36 research columns, computed Suggested Priority Rank, plus
 whichever optional tabs you selected — split into Tier 1 and Tier 2
 sheets if you turned two-tier output on and chose “Find new companies.”
+The Department Contact Finder returns a tiered table of named people —
+Company, Name, Title, Department/Team, Match Tier, Source, and
+Confidence — laid out to paste directly back into the main tracker’s
+Key Contacts / Priority Titles column.
 
 ### Worth Knowing
 
