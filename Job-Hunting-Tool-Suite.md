@@ -27,7 +27,9 @@ Positioning Notes added to Resume & Cover Letter Tailoring and Objection
 Reframing added to Interview Prep Guide Builder the same day; LinkedIn
 Profile Builder added as a third ongoing tool August 17, 2026; Target
 Company Prompt Builder section updated August 18, 2026 to add the
-Department Contact Finder step)
+Department Contact Finder step; Interview Prep Guide Builder section
+updated September 1, 2026 to add the Candidate SWOT Analysis and the
+optional STAR Stories field)
 
 > **Before You Start — One Claude Setting**
 >
@@ -197,7 +199,7 @@ a genuinely useful result:
 | **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → postings table or .xlsx                            | Web search (required); Code execution if .xlsx chosen            |
 | **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
 | **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution only if .docx chosen                              |
-| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name; never writes your actual behavioral stories or invents detail about a named interviewer.                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
+| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name and a Candidate SWOT Analysis with weakness-mitigation talking points (Hiring Manager and General/Other modes); never writes your actual behavioral stories or invents detail about a named interviewer — will use your own STAR Stories as-given if you provide them.                                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
 | **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (table or .docx)                 | Web search; Code execution if .docx chosen                       |
 | **LinkedIn Profile Builder**                     | Ongoing · Profile       | Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers. Skills are researched against real current demand, never a canned list; every quantified bullet uses a real number or falls back to a strong qualitative one.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Prompt → paste into Claude → profile text (+ optional .png banners)             | Web search recommended, not required; Code execution if banners or Word doc output chosen |
 | **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the 5 most on-brand, recent, real articles — ranked automatically — drafts the post for whichever you pick, and optionally builds matching artwork.                                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → post copy (+ optional .png)                        | Web search (required); Code execution if artwork is on           |
@@ -691,13 +693,14 @@ Message Builder (Step 3b), closing the loop.
   any concerns you named, standard logistics questions, recruiter-
   appropriate questions to ask), **Hiring Manager Interview** (built for
   a real, time-boxed video call — company/role research, a resume-to-JD
-  gap map, objection reframing, interviewer research, a video-call
+  gap map, objection reframing, interviewer research, a Candidate SWOT
+  Analysis with honest weakness-mitigation talking points, a video-call
   logistics checklist tied to your actual platform, pacing scaled to
   your actual call length, your top 3-4 STAR-structured stories rather
   than an exhaustive list, and HM-appropriate questions to ask), and
   **General/Other** (the fuller original structure — including its own
-  objection reframing — as a fallback for technical rounds, panels, and
-  final rounds).
+  objection reframing and the same Candidate SWOT Analysis — as a
+  fallback for technical rounds, panels, and final rounds).
 
 - **Shared inputs across all three modes:** company, role, job
   description, and your resume — paste text, or attach the files
@@ -707,6 +710,15 @@ Message Builder (Step 3b), closing the loop.
   drives a dedicated Objection Reframing section in every mode — left
   blank, that section falls back to general guidance instead of
   inventing your situation.
+
+- **Optional STAR Stories field (Hiring Manager and General/Other
+  modes):** write your own Situation/Task/Action/Result for up to 3
+  stories if you already know which ones you want to use. The guide
+  uses them exactly as written instead of just pointing you to a resume
+  bullet, filling any remaining slot up to 3-4 the usual way. Leave all
+  three blank and nothing changes — same fallback as before. Not shown
+  in Recruiter Screen mode, which doesn't use behavioral-style
+  questions.
 
 - **Mode-specific fields:** Recruiter Screen adds location (for salary
   research grounding), an optional reason for a gap or departure, and an
@@ -731,17 +743,25 @@ you walk in or join the call, and full detail below it.
 
 ### Worth Knowing
 
-- **Never a scripted answer.** For behavioral questions, the guide
-  points you to the specific resume bullet that’s your strongest match
-  and prompts STAR structure — it does not write the story for you.
-  Claude doesn’t know what actually happened in your work beyond what
-  your resume states, and inventing specifics risks putting words in
-  your mouth you’d have to walk back live.
+- **Never a scripted answer.** If you filled in the optional STAR
+  Stories field, the guide uses those stories exactly as you wrote them
+  and never embellishes them. Where a slot is unfilled, it points you to
+  the specific resume bullet that’s your strongest match and prompts
+  STAR structure — it does not write the story for you. Claude doesn’t
+  know what actually happened in your work beyond what your resume
+  states (or what you wrote yourself), and inventing specifics risks
+  putting words in your mouth you’d have to walk back live.
 
 - **Interviewer research stays evidence-based.** If a named interviewer
   has little or no public footprint, the guide says so plainly and falls
   back to role-based prep instead of inventing a personality or
   interests to seem more personalized.
+
+- **SWOT weaknesses stay honest.** In Hiring Manager and General/Other
+  modes, a real weakness in the Candidate SWOT Analysis is never
+  softened into a non-weakness, and its mitigation talking point is
+  never a fabricated accomplishment used to explain the gap away — same
+  standard as Objection Reframing.
 
 - **The salary question is grounded in real search, not a guess.**
   Recruiter Screen mode requires actual market-data research (sources
