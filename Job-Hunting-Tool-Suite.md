@@ -140,7 +140,7 @@ check this once rather than hunting per tool:
 | **Setting**                      | **Needed For**                                                                                                                                                                                                                                                                                                                                                   | **Where to Find It**                                                                                                                                         |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms), LinkedIn Profile Builder (recommended, not required — for researching current in-demand skills) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
-| Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator), plus LinkedIn Article Share Builder if artwork generation is on, plus LinkedIn Profile Builder if the profile banner images are on or if Downloadable Word document output is chosen                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
+| Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator, Career Path Discovery Prompt Builder if Word document output is chosen), plus LinkedIn Article Share Builder if artwork generation is on or if Downloadable Word document output is chosen, plus LinkedIn Profile Builder if the profile banner images are on or if Downloadable Word document output is chosen                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
 | Neither                          | Recruiter Message & Job Posting Sanity Check — it never leaves your browser                                                                                                                                                                                                                                                                                      | N/A — nothing to enable                                                                                                                                      |
 
 ## Your First Run
@@ -194,7 +194,7 @@ a genuinely useful result:
 
 | **Tool**                                         | **Step**                | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Output**                                                                      | **Key Claude Setting**                                           |
 |--------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|
-| **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces 8-12 realistic alternative paths — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → ranked paths (chat only, no file)                  | Web search recommended, not required                             |
+| **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces alternative paths (1-4 by default, adjustable) — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → ranked paths (chat, or downloadable Word doc)                  | Web search recommended, not required                             |
 | **Target Company Prompt Builder**                | Step 1 · Research       | Four linked prompts on one page: an optional wide-net **Bulk Company Pull** (cheap, flat candidate list to prune by hand), the main **Full Research Tracker** (researches and ranks companies via a competitor-cascade discovery method — not NAICS-code search; builds a formatted Excel tracker, 31–36 columns, with a computed Suggested Priority Rank; optional manual two-tier output), **LinkedIn Contact Enrichment** for warm introduction paths, and **Department Contact Finder** for named, tier-ranked contacts at a company via live web search. | Prompt(s) → paste into Claude → .xlsx tracker (+ optional flat bulk-pull .xlsx / department-contacts .xlsx) | Web search; Code execution for the .xlsx                         |
 | **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → postings table or .xlsx                            | Web search (required); Code execution if .xlsx chosen            |
 | **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
@@ -202,7 +202,7 @@ a genuinely useful result:
 | **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name and a Candidate SWOT Analysis with weakness-mitigation talking points (Hiring Manager and General/Other modes); never writes your actual behavioral stories or invents detail about a named interviewer — will use your own STAR Stories as-given if you provide them.                                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
 | **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (table or .docx)                 | Web search; Code execution if .docx chosen                       |
 | **LinkedIn Profile Builder**                     | Ongoing · Profile       | Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers. Skills are researched against real current demand, never a canned list; every quantified bullet uses a real number or falls back to a strong qualitative one.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Prompt → paste into Claude → profile text (+ optional .png banners)             | Web search recommended, not required; Code execution if banners or Word doc output chosen |
-| **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the 5 most on-brand, recent, real articles — ranked automatically — drafts the post for whichever you pick, and optionally builds matching artwork.                                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → post copy (+ optional .png)                        | Web search (required); Code execution if artwork is on           |
+| **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the top 3 most on-brand, recent, real articles — ranked automatically — and drafts two genuinely different posts for each (an Informational Share and a Position/Stance take), so you choose between 6 real drafts, not one. Optionally builds matching artwork for whichever you pick.                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → 6 drafts in one response (table or .docx), + optional .png                        | Web search (required); Code execution if artwork is on or Word document output is chosen           |
 | **Recruiter Message & Job Posting Sanity Check** | Ongoing · Safety        | Screens a recruiter message OR a job posting (pick a mode) against known scam patterns in-browser — flags unnamed intermediaries, upfront fees, reshipping/payment-processing scams, employer mismatches, AI-generated photos, and more, plus a mode-appropriate follow-up (a reply draft for messages, a pre-application checklist for postings) on borderline results.                                                                                       | Finished result immediately — no Claude chat needed                             | None — runs entirely client-side                                 |
 
 ## 0. Career Path Discovery Prompt Builder
@@ -235,26 +235,30 @@ do that well.
   schooling or an entry-level restart (on by default, but an unusually
   compelling exception can still be flagged).
 
-- **Output scope toggles:** how many paths to surface (8–12 by default),
+- **Output scope toggles:** how many paths to surface (1–4 by
+  default — the tool's own hint suggests 8–12 as a deeper alternative),
   and independent on/off switches for a ranked fit table, a "Hidden
   Opportunities" section (roles at the intersection of two or more of
   your capabilities, not just title-matching), a Final Recommendation
-  summary, and next-step routing to the rest of the suite.
+  summary, and next-step routing to the rest of the suite. Output format
+  defaults to chat text; a downloadable Word document is available too.
 
 ### Claude Settings Required
 
 - Web search — recommended, not required, for checking current role and
   salary norms
 
-- Code execution and file creation — not needed; this tool's output is
-  chat text only, no downloadable file
+- Code execution and file creation — only needed if you choose the
+  downloadable Word document output; the default chat-text output
+  doesn't require it
 
 ### What You Get Back
 
 A Career Profile Assessment and Career Capital breakdown grounded in
-your pasted background, 8–12 alternative career paths (mixing adjacent
-moves, less-obvious transferable roles, leadership and IC options, and
-paths outside your current industry unless restricted), and — depending
+your pasted background, alternative career paths (1–4 by default,
+adjustable — mixing adjacent moves, less-obvious transferable roles,
+leadership and IC options, and paths outside your current industry
+unless restricted), and — depending
 on which toggles you left on — a ranked fit table, a Hidden Opportunities
 section, a Final Recommendation summary, and a pointer for your top 3
 paths toward the specific suite tool to run next.
@@ -959,58 +963,84 @@ banner `.png` files if requested, regardless of that choice.
 
 **ONGOING · PERSONAL BRAND**
 
-Finds the 5 most on-brand, recent, real articles worth sharing — ranked
-automatically against your actual brand keywords — then drafts the post
-for whichever one you pick, and optionally builds matching artwork.
-Useful whether or not you’re actively job hunting.
+Finds the top 3 most on-brand, recent, real articles worth sharing —
+ranked automatically against your actual brand keywords — then drafts
+**two genuinely different posts for each**: an Informational Share and a
+Position/Stance take. That's 6 fully drafted posts in one response, so
+you're choosing between real options rather than approving one draft.
+Optionally builds matching artwork for whichever one you pick. Useful
+whether or not you're actively job hunting.
 
 ### Key Sections & Options
 
 - **What counts as "on-brand":** your brand keywords/topics (the field
   that makes "impactful" mean something specific to you, not generic
   trending news), a recency window (24 hours to a week), optional
-  audience, source guidance, and what you’ve already covered recently so
-  the run doesn’t repeat itself.
+  audience, source guidance, what you've already covered recently so the
+  run doesn't repeat itself, and optional ongoing themes you're building
+  a position on — thought leadership compounds across posts connected to
+  a few recognizable throughlines, not one-off reactions.
 
-- **Your brand identity:** set once and reused every time — your name,
-  tagline, and an optional eyebrow line (defaults to "WORTH YOUR
-  ATTENTION").
+- **Your brand identity:** name, tagline, and an optional eyebrow line
+  (defaults to "WORTH YOUR ATTENTION") feed the artwork and post
+  signature. An optional background/expertise field grounds the
+  Position/Stance variant in something real. None of this is remembered
+  automatically — closing the tab clears it like every other field — so
+  use the **Save/Load brand identity** buttons to keep a small `.json`
+  file with these fields instead of retyping them each time.
 
-- **Options:** generate artwork (a 1200×630 .png built with Python’s
-  Pillow library, matching a consistent visual template — Claude-only,
-  since most other AI tools have no equivalent way to execute this from
-  a pasted prompt), generate hashtags, and whether to end the post with
-  a genuine question (off by default, since overusing it starts to read
-  as engagement-bait).
+- **Options:** generate hashtags (on by default — 3-5 per variant, with
+  the Position/Stance variant's hashtags drawing from both the article
+  and your background/themes to build a recognizable community of
+  interest over time), generate artwork for whichever post you end up
+  choosing (on by default, a separate follow-up step scoped to just that
+  one post, not all 6 drafts), and output format (chat table by default,
+  or a downloadable Word document laying out all 3 articles × 2 variants
+  for offline comparison). There's no separate "end with a question?"
+  toggle — that judgment now lives inside the Position/Stance variant
+  itself, decided per-take rather than as one global setting.
 
 ### Claude Settings Required
 
 - Web search — required to find real, current articles
 
-- Code execution and file creation — only if artwork generation is on
+- Code execution and file creation — only if artwork generation is on,
+  or if you choose the downloadable Word document output
 
 ### What You Get Back
 
-Step 1: the top 5 ranked candidates, each with context (headline,
-source, free-to-read status, why it ranked here) plus a ready-to-copy
-block (URL, summary, hashtags). Step 2, once you pick one: the actual
-LinkedIn post, plain text, no markdown. Step 3 (optional): a real
-downloadable .png, not just a description of one.
+Step 1, all in one response: for each of the 3 ranked articles, context
+(headline, source, published date, free-to-read status, why it ranked
+here), then both variants fully drafted — Variant A (Informational
+Share: a one-to-two-sentence factual summary, minimal commentary, ends
+on a statement) and Variant B (Position/Stance: a real take grounded in
+your background/themes, closing on a question or a statement, whichever
+is judged stronger for that specific take) — each with its own hashtags
+if enabled. Step 2, once you've told Claude which of the 6 you're using:
+a real downloadable `.png` (1200×630) built to match this tool family's
+visual template, Claude only.
 
 ### Worth Knowing
 
 - Built-in honesty guardrails are non-optional: only real, verifiable
-  articles with real URLs, every summary written fresh in Claude’s own
-  words (never copied from source), and an honest "fewer than 5 today"
+  articles with real URLs, every summary written fresh in Claude's own
+  words (never copied from source), and an honest "fewer than 3 today"
   if genuinely on-brand, free-to-read articles are thin.
 
-- No markdown formatting anywhere in the output — LinkedIn doesn’t
+- **The Position/Stance variant never invents anything about you.** It
+  leans on real background/themes if you gave them, and stays general
+  and analytical if you didn't — but it never fabricates a claim,
+  credential, or experience either way. This matters more here than in a
+  one-off message, since a fabricated personal anecdote in a public
+  LinkedIn post is out there under your name.
+
+- No markdown formatting anywhere in the output — LinkedIn doesn't
   render it, so asterisks or pound signs would show up as literal stray
   characters.
 
 - Artwork generation only works in Claude itself — pasting the prompt
   into ChatGPT or another tool will not produce an image, regardless of
-  wording, since the instruction depends on Claude’s code execution
+  wording, since the instruction depends on Claude's code execution
   environment specifically.
 
 **Open the tool:**
