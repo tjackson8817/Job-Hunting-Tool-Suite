@@ -834,6 +834,17 @@ tool, and the guide will not imply one exists anywhere in its output.
 - **Competing offer (optional):** only fill this in if you actually have
   one, with real figures — see the guardrail above.
 
+- **Market data follows a source hierarchy, not a flat list:** BLS.gov
+  and the current-year Robert Half Salary Guide are treated as primary
+  sources when they cover the role, since both are methodologically
+  transparent rather than purely self-reported. Salary.com, Payscale,
+  SalaryExpert, and levels.fyi/Glassdoor are used as secondary,
+  directional data points to build a range around those primary
+  figures — never as the sole basis for a number. The guide names which
+  source each figure came from, and flags plainly when a range leans
+  heavily on secondary sources because primary data wasn't available for
+  that specific role.
+
 ### Claude Settings Required
 
 - Web search — for market compensation research and company-specific
