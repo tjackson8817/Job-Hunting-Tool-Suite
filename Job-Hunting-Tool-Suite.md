@@ -1,3 +1,5 @@
+![Sale Fish Marketing and Consulting](sale_fish_logo.png)
+
 **Sale Fish Marketing and Consulting**
 
 **Job Hunting Tool Suite**
@@ -34,6 +36,27 @@ optional STAR Stories field)
 > **Before You Start — One Claude Setting**
 >
 > In Claude, go to **Settings → Capabilities** and toggle **"Code execution and file creation"** on. This is what lets Claude actually build the Excel or Word file a tool asks for, instead of just describing it in the chat. Available on Free, Pro, Max, Team, and Enterprise plans — on web, desktop, and mobile. (Web search is the other setting you'll need; see the full settings table below.)
+
+## Table of Contents
+
+- [What This Suite Is](#what-this-suite-is)
+- [Getting Started](#getting-started)
+- [The Two Workflows](#the-two-workflows)
+- [How Eight of the Ten Tools Work](#how-eight-of-the-ten-tools-work)
+- [Claude Settings You'll Need](#claude-settings-youll-need)
+- [Your First Run](#your-first-run)
+- [Quick Reference](#quick-reference)
+- [0. Career Path Discovery Prompt Builder](#0-career-path-discovery-prompt-builder)
+- [1. Target Company Prompt Builder](#1-target-company-prompt-builder)
+- [2. Job Posting Finder](#2-job-posting-finder)
+- [3. Resume & Cover Letter Tailoring](#3-resume--cover-letter-tailoring)
+- [4. Outreach Message Builder](#4-outreach-message-builder)
+- [5. Interview Prep Guide Builder](#5-interview-prep-guide-builder)
+- [6. Salary Negotiator](#6-salary-negotiator)
+- [7. LinkedIn Profile Builder](#7-linkedin-profile-builder)
+- [8. LinkedIn Article Share Builder](#8-linkedin-article-share-builder)
+- [9. Recruiter Message & Job Posting Sanity Check](#9-recruiter-message--job-posting-sanity-check)
+- [Make It Your Own](#make-it-your-own)
 
 ## What This Suite Is
 
@@ -139,8 +162,8 @@ check this once rather than hunting per tool:
 
 | **Setting**                      | **Needed For**                                                                                                                                                                                                                                                                                                                                                   | **Where to Find It**                                                                                                                                         |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identificatio is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms), LinkedIn Profile Builder (recommended, not required — for researching current in-demand skills) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
-| Code execution and file creation | Any tool where you choose an Excel or Word document output (Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator, Career Path Discovery Prompt Builder if Word document output is chosen), plus LinkedIn Article Share Builder if artwork generation is on or if Downloadable Word document output is chosen, plus LinkedIn Profile Builder if the profile banner images are on or if Downloadable Word document output is chosen                                                                                          | Settings → Capabilities, toggle it on.                                                                                                                       |
+| Web search                       | Job Posting Finder (always), LinkedIn Article Share Builder (always), Target Company Prompt Builder (for live research), Interview Prep Guide Builder (for company/interviewer/salary research), Salary Negotiator (for market and company-specific compensation research, always), Resume & Cover Letter Tailoring (only if recruiter identification is left on), Career Path Discovery Prompt Builder (recommended, not required — for checking current role and salary norms), LinkedIn Profile Builder (recommended, not required — for researching current in-demand skills) | Click the + (or slider) icon in the chat input, find Web search, toggle it on. Team/Enterprise accounts may need an admin to enable it workspace-wide first. |
+| Code execution and file creation | **Always needed** for eight of the ten tools — Job Posting Finder, Career Path Discovery Prompt Builder, Target Company Prompt Builder, Resume & Cover Letter Tailoring, Outreach Message Builder, Interview Prep Guide Builder, Salary Negotiator, and LinkedIn Profile Builder all now return a downloadable Excel or Word file every time, with no chat-only option left. LinkedIn Article Share Builder needs it whenever artwork generation is on (the default). Recruiter Message & Job Posting Sanity Check never needs it. | Settings → Capabilities, toggle it on. |
 | Neither                          | Recruiter Message & Job Posting Sanity Check — it never leaves your browser                                                                                                                                                                                                                                                                                      | N/A — nothing to enable                                                                                                                                      |
 
 ## Your First Run
@@ -194,15 +217,15 @@ a genuinely useful result:
 
 | **Tool**                                         | **Step**                | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                | **Output**                                                                      | **Key Claude Setting**                                           |
 |--------------------------------------------------|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------|
-| **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces alternative paths (1-4 by default, adjustable) — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → ranked paths (chat, or downloadable Word doc)                  | Web search recommended, not required                             |
+| **Career Path Discovery Prompt Builder**         | Step 0 · Discover       | Optional, for when you're not sure what to target yet. Analyzes your real career background like a strategist and executive recruiter would, and surfaces alternative paths (1-4 by default, adjustable) — ranked on transferability, credibility, comp potential, and more — pointing you to Step 1 once you've picked one.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Prompt → paste into Claude → downloadable Word doc of ranked paths                  | Web search recommended, not required; Code execution required             |
 | **Target Company Prompt Builder**                | Step 1 · Research       | Four linked prompts on one page: an optional wide-net **Bulk Company Pull** (cheap, flat candidate list to prune by hand), the main **Full Research Tracker** (researches and ranks companies via a competitor-cascade discovery method — not NAICS-code search; builds a formatted Excel tracker, 31–36 columns, with a computed Suggested Priority Rank; optional manual two-tier output), **LinkedIn Contact Enrichment** for warm introduction paths, and **Department Contact Finder** for named, tier-ranked contacts at a company via live web search. | Prompt(s) → paste into Claude → .xlsx tracker (+ optional flat bulk-pull .xlsx / department-contacts .xlsx) | Web search; Code execution for the .xlsx                         |
-| **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → postings table or .xlsx                            | Web search (required); Code execution if .xlsx chosen            |
-| **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution if .docx chosen |
-| **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution only if .docx chosen                              |
-| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name and a Candidate SWOT Analysis with weakness-mitigation talking points (Hiring Manager and General/Other modes); never writes your actual behavioral stories or invents detail about a named interviewer — will use your own STAR Stories as-given if you provide them.                                                                                                                                                 | Prompt → paste into Claude → prep guide (table or .docx)                        | Web search; Code execution if .docx chosen                       |
-| **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (table or .docx)                 | Web search; Code execution if .docx chosen                       |
-| **LinkedIn Profile Builder**                     | Ongoing · Profile       | Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers. Skills are researched against real current demand, never a canned list; every quantified bullet uses a real number or falls back to a strong qualitative one.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Prompt → paste into Claude → profile text (+ optional .png banners)             | Web search recommended, not required; Code execution if banners or Word doc output chosen |
-| **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the top 3 most on-brand, recent, real articles — ranked automatically — and drafts two genuinely different posts for each (an Informational Share and a Position/Stance take), so you choose between 6 real drafts, not one. Optionally builds matching artwork for whichever you pick.                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → 6 drafts in one response (table or .docx), + optional .png                        | Web search (required); Code execution if artwork is on or Word document output is chosen           |
+| **Job Posting Finder**                           | Step 2 · Verify         | Finds real, current job postings — real titles, real URLs. Standard mode (default) title-searches up to 15 companies at once; Senior/Executive Search mode instead runs a broad Triage pass (~30 companies, status only) then a verified 5-company Deep Dive. Every mode now verifies any promising lead by direct link check before reporting it, and auto-flags KPMG/Accenture/EY leads as needing extra scrutiny.                                           | Prompt → paste into Claude → downloadable .xlsx of postings/status            | Web search (required); Code execution required            |
+| **Resume & Cover Letter Tailoring**              | Step 3a · Apply/Connect | Tailors your actual resume and cover letter to one posting — keyword gap analysis, bullet rewrites, traditional letter and/or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Can also produce an updated resume with the suggestions actually applied.                                                                                                                                                                                                              | Prompt → paste into Claude → tailored documents                                 | Web search if recruiter ID is on; Code execution required |
+| **Outreach Message Builder**                     | Step 3b · Apply/Connect | Drafts the actual outreach messages — tailored per company, per stage of the relationship (first outreach, follow-up, thank-you, staying in touch), from your real Warm Introduction Path and Target Audience, never one generic template swapped with a name.                                                                                                                                                                                                 | Prompt → paste into Claude → draft messages                                     | Code execution required                              |
+| **Interview Prep Guide Builder**                 | Step 4 · Interview      | Three modes — Recruiter Screen, Hiring Manager Interview, General/Other — each with genuinely different fields and content, not just a depth adjustment. Builds a real, grounded prep guide from your resume and the job description, including honest Objection Reframing for any concerns you name and a Candidate SWOT Analysis with weakness-mitigation talking points (Hiring Manager and General/Other modes); never writes your actual behavioral stories or invents detail about a named interviewer — will use your own STAR Stories as-given if you provide them.                                                                                                                                                 | Prompt → paste into Claude → prep guide (downloadable .docx)                        | Web search; Code execution required                       |
+| **Salary Negotiator**                            | Step 5 · Negotiate      | Turns a real offer, sourced market and company-specific compensation data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that field blank is the honest default, not a weaker use of the tool.                                                                                                                                                                | Prompt → paste into Claude → negotiation guide (downloadable .docx)                 | Web search; Code execution required                       |
+| **LinkedIn Profile Builder**                     | Ongoing · Profile       | Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers. Skills are researched against real current demand, never a canned list; every quantified bullet uses a real number or falls back to a strong qualitative one.                                                                                                                                                                                                                                                                                                                                                                                                                                              | Prompt → paste into Claude → downloadable Word doc (+ optional .png banners)             | Web search recommended, not required; Code execution required |
+| **LinkedIn Article Share Builder**               | Ongoing · Brand         | Finds the top 3 most on-brand, recent, real articles — ranked automatically — drafts 2 post variants for each (6 total), and optionally builds matching artwork for whichever you pick.                                                                                                                                                                                                                                                                                                      | Prompt → paste into Claude → downloadable Word doc (+ optional .png)                        | Web search (required); Code execution required           |
 | **Recruiter Message & Job Posting Sanity Check** | Ongoing · Safety        | Screens a recruiter message OR a job posting (pick a mode) against known scam patterns in-browser — flags unnamed intermediaries, upfront fees, reshipping/payment-processing scams, employer mismatches, AI-generated photos, and more, plus a mode-appropriate follow-up (a reply draft for messages, a pre-application checklist for postings) on borderline results.                                                                                       | Finished result immediately — no Claude chat needed                             | None — runs entirely client-side                                 |
 
 ## 0. Career Path Discovery Prompt Builder
@@ -220,37 +243,29 @@ try to also rewrite your resume or coach you through objections, since
 Resume & Cover Letter Tailoring and Interview Prep Guide Builder already
 do that well.
 
-### Key Sections & Options
+### Fields
 
-- **Your background (required):** paste your resume, LinkedIn
-  About/Experience sections, or a written summary — not a file upload,
-  and no length limit. Real detail (specific accomplishments, numbers,
-  technologies, team sizes) produces a sharper analysis than
-  resume-objective boilerplate.
-
-- **Constraints and scope (all optional):** hard constraints Claude
-  filters every recommendation through (not just weighs loosely), a
-  minimum compensation floor, whether to restrict paths to your current
-  industry, and whether to rule out paths needing years of additional
-  schooling or an entry-level restart (on by default, but an unusually
-  compelling exception can still be flagged).
-
-- **Output scope toggles:** how many paths to surface (1–4 by
-  default — the tool's own hint suggests 8–12 as a deeper alternative),
-  and independent on/off switches for a ranked fit table, a "Hidden
-  Opportunities" section (roles at the intersection of two or more of
-  your capabilities, not just title-matching), a Final Recommendation
-  summary, and next-step routing to the rest of the suite. Output format
-  defaults to chat text; a downloadable Word document is available too.
+| Field | Required? | Description |
+|---|---|---|
+| Your background | Required | Paste your resume, LinkedIn About/Experience sections, or a written summary — not a file upload, and no length limit. Real detail (specific accomplishments, numbers, technologies, team sizes) produces a sharper analysis than resume-objective boilerplate. |
+| Current or most recent title | Optional | A quick anchor point, separate from the fuller background text. |
+| Hard constraints ("anything off the table") | Optional | Things genuinely off the table, not soft preferences — Claude filters every recommendation through these rather than just weighing them loosely. |
+| Minimum acceptable compensation | Optional | A floor, not a target — flags paths that wouldn't realistically clear it. |
+| Stay within my current industry? | Optional, defaults to No | "No" shows everything, including a full break into an unrelated industry. "Yes" restricts to adjacent roles in your current industry. |
+| Rule out paths needing years of schooling or an entry-level restart? | Optional, defaults to Yes | "Yes" keeps the focus on paths you could realistically move into now, though an unusually compelling exception can still be flagged. "No" opens the door to paths requiring significant retraining, with that cost stated plainly. |
+| How many paths to surface | Optional, defaults to 1–4 | The tool's own hint suggests 8–12 as a deeper alternative, or any number. |
+| Include a ranked fit table? | Optional toggle, on by default | |
+| Include a "Hidden Opportunities" section? | Optional toggle, on by default | Roles at the intersection of two or more of your capabilities, not just title-matching. |
+| Include a Final Recommendation summary? | Optional toggle, on by default | |
+| Include next-step routing to the rest of the suite? | Optional toggle, on by default | |
 
 ### Claude Settings Required
 
 - Web search — recommended, not required, for checking current role and
   salary norms
 
-- Code execution and file creation — only needed if you choose the
-  downloadable Word document output; the default chat-text output
-  doesn't require it
+- Code execution and file creation — required, since the output is
+  always a downloadable Word document
 
 ### What You Get Back
 
@@ -285,116 +300,140 @@ paths toward the specific suite tool to run next.
 
 **STEP 1 · RESEARCH**
 
-One page, four linked prompts, each with its own Copy/Download buttons
-and output panel: an optional **Bulk Company Pull**, the main **Full
-Research Tracker**, **LinkedIn Contact Enrichment**, and **Department
-Contact Finder**. Together they turn a starting point — company names
-you know, an industry description, NAICS codes, or any combination —
-into ranked, researched target companies with real named contacts. The
-Full Research Tracker’s output (a fully formatted Excel tracker) is the
-foundation everything else in the funnel depends on.
+One page, **four linked prompts**, each with its own Copy/Download
+buttons and output panel. They run in a logical order — cast a wide
+net, narrow it down, research it in depth, then fill in the named
+contacts — but each is independently useful and you can jump straight
+to any one of them if that's all you need:
 
-### Key Sections & Options
+| # | Prompt | What it's for |
+|---|---|---|
+| 1 | **Bulk Company Pull** | Optional, cheap, wide-net candidate list to prune by hand |
+| 2 | **Full Research Tracker** | The main event — deep research and ranking on a specific list of companies |
+| 3 | **LinkedIn Contact Enrichment** | Cross-references your own LinkedIn contacts against a shortlist for warm intros |
+| 4 | **Department Contact Finder** | Finds named people at a company via live search, when you have no contacts of your own |
 
-- **Shared Inputs:** company names, industry description, and/or NAICS
-  codes — feeds all three prompts on the page. The industry field links
-  directly to the [Census NAICS Search](https://www.census.gov/naics/)
-  if you want to borrow official industry wording rather than guess. A
-  live hint under “Company(s) you know” flags when your seed list is
-  getting large (past 20 the discovery cascade runs noticeably slower;
-  past 50 it suggests Claude’s Research feature instead). Choose “Find
-  new companies” in the Full Research Tracker to let Claude do its own
-  modest discovery, or “Just enrich these” to restrict research to only
-  the exact companies you typed — the second option also hides the
-  discovery-only fields below it, since none of them apply.
+The Full Research Tracker's output (a fully formatted Excel tracker) is
+the foundation everything else in the funnel depends on.
 
-- **How companies actually get discovered:** not a NAICS-code search —
-  NAICS codes are far too broad to filter by, and the one government
-  source that can (SAM.gov) blocks automated access. Discovery instead
-  runs a competitor/alternative cascade off your named companies, checks
-  analyst and category sources (Gartner, Forrester, G2), scans
-  industry-conference exhibitor lists, and searches live job postings.
-  NAICS is applied afterward as a classification tag (up to 5 codes per
-  company), not the discovery engine.
+### Shared Inputs
 
-- **Bulk Company Pull (optional, run first):** a separate, cheap prompt
-  for casting a wide net before committing to full research on anyone —
-  a flat list (Company, Website, Inferred NAICS Code, one-line
-  description, Source) using the same discovery method above, sized as
-  wide as you want (no per-company research cost). Prune the result by
-  hand, then paste the survivors’ Company column into Shared Inputs and
-  set Discovery scope to “Just enrich these.”
+These three fields sit at the top of the page and feed the Bulk
+Company Pull and Full Research Tracker prompts:
 
-- **Scope & purpose:** optional company-size and location-radius
-  filters, plus the single most important field — what the list is for —
-  since it drives how Claude judges fit, category, and contacts for
-  every company.
+| Field | Required? | Description |
+|---|---|---|
+| Company(s) you know | At least one of these three | Named companies to seed discovery from. A live hint appears once your list gets large — past 20, the discovery cascade runs noticeably slower; past 50, it suggests Claude's Research feature instead. |
+| Industry description | At least one of these three | Free text. Links directly to the [Census NAICS Search](https://www.census.gov/naics/) if you want to borrow official industry wording rather than guess. |
+| NAICS codes | At least one of these three | Applied afterward as a classification tag (up to 5 codes per company) — **not** the discovery engine. NAICS codes are too broad to filter by on their own, and the one government source that can (SAM.gov) blocks automated access. |
 
-- **Two-tier output (optional, manual):** turn on “Use a two-tier target
-  list?” and set your own Tier 1 / Tier 2 sizes to get a
-  fully-researched Tier 1 plus a lighter Tier 2 for a larger discovered
-  pool. Only takes effect when Discovery scope is “Find new companies” —
-  the toggle and its size fields are hidden entirely in “Just enrich
-  these” mode, since there’s no discovered pool to rank.
+**How companies actually get discovered:** a competitor/alternative
+cascade off your named companies, cross-checked against analyst and
+category sources (Gartner, Forrester, G2), industry-conference
+exhibitor lists, and live job postings — not a NAICS-code search.
 
-- **Optional add-on tabs:** M&A research columns, Job Posting Quick
-  Links (pre-built search links), Job Post Finder (a plain Company +
-  Suggested Job Title Keywords reference tab), Outreach Contacts (a
-  four-column tab formatted for the Outreach Message Builder tool),
-  Industry Events & Forums, and Company Activity & Events.
+---
 
-- **LinkedIn Contact Enrichment:** the third prompt on the page —
-  cross-references a LinkedIn contacts export against a shortlist of
-  target companies (25 or fewer) to surface warm introduction paths.
-  Doesn’t touch or require the main tracker; run it as a follow-up once
-  you have a shortlist.
+### 1. Bulk Company Pull — the wide net *(optional, run this first)*
 
-- **Department Contact Finder:** the fourth prompt on the page — finds
-  *named individuals* at a target company (15 or fewer) who work in or
-  near a role/department you specify, sourced from live web search
-  rather than your own contacts. Every result is labeled Tier 1 (Exact),
-  Tier 2 (Adjacent), or Tier 3 (Umbrella) so a loosely-related match is
-  never presented as if it's the exact team. This is the fulfillment
-  step for the main tracker's Key Contacts / Priority Titles column,
-  which often comes back as a placeholder rather than a real name.
+A separate, cheap prompt for casting a wide net **before** committing
+to full research on anyone. It reuses the Shared Inputs above and adds
+no fields of its own — there's nothing to configure beyond what's
+already at the top of the page.
+
+| What it does | Detail |
+|---|---|
+| Output | A flat, unformatted list: Company, Website, Inferred NAICS Code, a one-line description, and Source |
+| Sizing | As wide as you want — no per-company research cost, since it's a shallow pull |
+| Discovery method | Same competitor/category cascade described above |
+| What to do with the result | Prune it by hand, then paste the survivors' Company column into Shared Inputs and set Discovery scope (below) to "Just enrich these" for Prompt 2 |
+
+This prompt is the **wide, shallow** pass. It deliberately does *not*
+do the deep research the next prompt does — that's the point of
+running it first.
+
+---
+
+### 2. Full Research Tracker — the detailed company search *(the main prompt)*
+
+This is the deep, narrow pass — real per-company research on a list
+you've already committed to (either typed directly into Shared Inputs,
+or pruned from the Bulk Company Pull above).
+
+| Field | Required? | Description |
+|---|---|---|
+| Discovery scope | Required — choose one | **"Find new companies"** lets Claude do its own modest discovery beyond your seed list. **"Just enrich these"** restricts research to only the exact companies you typed — this also hides every discovery-only field below, since none of them apply. |
+| Company size filter | Optional | An instruction to Claude's research judgment, not a guaranteed hard filter against a live database. |
+| Location radius filter | Optional | Same caveat — spot-check a sample of results. |
+| Purpose — "what the list is for" | Required | The single most important field on this prompt. Drives how Claude judges fit, category, and contacts for every company it researches. |
+| Use a two-tier target list? | Optional, manual toggle | Only takes effect when Discovery scope is "Find new companies" — hidden entirely in "Just enrich these" mode, since there's no discovered pool to rank. |
+| Tier 1 / Tier 2 sizes | Optional | Only shown once the two-tier toggle above is on. Gets you a fully-researched Tier 1 plus a lighter Tier 2 for a larger discovered pool. |
+| Optional add-on tabs | Optional, pick any | M&A research columns, Job Posting Quick Links (pre-built search links), Job Post Finder (a plain Company + Suggested Job Title Keywords reference tab), Outreach Contacts (a four-column tab formatted for the Outreach Message Builder tool), Industry Events & Forums, and Company Activity & Events. |
+
+**Output:** a fully formatted Excel workbook — one row per company,
+31–36 research columns, a computed Suggested Priority Rank, plus
+whichever optional tabs you selected — split into Tier 1 and Tier 2
+sheets if two-tier output is on and Discovery scope is "Find new
+companies."
+
+There's no automatic company cap or qualification pass — you control
+research depth directly via Discovery scope and (optionally) Tier
+1/Tier 2 sizes. As a practical guide, totals above roughly 50–75
+companies in one run tend to come back thinner per company; use Bulk
+Company Pull plus "Just enrich these" for anything larger.
+
+---
+
+### 3. LinkedIn Contact Enrichment
+
+The third prompt on the page. Doesn't touch or require the main
+tracker — run it as a follow-up once you have a shortlist.
+
+| Field | Required? | Description |
+|---|---|---|
+| Your LinkedIn contacts export | Required | Paste the exported contacts you want cross-referenced. |
+| Target company shortlist | Required, 25 or fewer | The companies to check your contacts against for a warm introduction path. |
+
+**Output:** for each target company, any of your contacts who work
+there (or are adjacent to it), surfaced as a possible warm
+introduction path.
+
+---
+
+### 4. Department Contact Finder
+
+The fourth prompt on the page. This is the fulfillment step for the
+main tracker's Key Contacts / Priority Titles column, which often
+comes back as a placeholder rather than a real name — it finds *named
+individuals* via live web search, not from your own contacts.
+
+| Field | Required? | Description |
+|---|---|---|
+| Target companies | Required, 15 or fewer | The companies to search for named contacts at. |
+| Role/department to search for | Required | The role or team you want a named contact in or near. |
+
+**Output:** a tiered table of named people — Company, Name, Title,
+Department/Team, Match Tier, Source, and Confidence — laid out to
+paste directly back into the main tracker's Key Contacts / Priority
+Titles column. Every result is labeled **Tier 1 (Exact)**, **Tier 2
+(Adjacent)**, or **Tier 3 (Umbrella)**, so a loosely-related match is
+never presented as if it's the exact team.
+
+---
 
 ### Claude Settings Required
 
 - Web search — for live company research
-
 - Code execution and file creation — to build the actual .xlsx
   tracker(s)
 
-### What You Get Back
-
-Whichever prompt(s) you run, each returns a downloadable Excel workbook.
-The Bulk Company Pull returns a plain, unformatted list for pruning. The
-Full Research Tracker returns a fully formatted workbook — one row per
-company, 31–36 research columns, computed Suggested Priority Rank, plus
-whichever optional tabs you selected — split into Tier 1 and Tier 2
-sheets if you turned two-tier output on and chose “Find new companies.”
-The Department Contact Finder returns a tiered table of named people —
-Company, Name, Title, Department/Team, Match Tier, Source, and
-Confidence — laid out to paste directly back into the main tracker’s
-Key Contacts / Priority Titles column.
-
 ### Worth Knowing
-
-- There’s no automatic company cap or qualification pass — you control
-  research depth directly via Discovery scope and (optionally) Tier
-  1/Tier 2 sizes. As a practical guide, totals above roughly 50–75
-  companies in one Full Research Tracker run tend to come back thinner
-  per company; use Bulk Company Pull plus “Just enrich these” for
-  anything larger.
-
-- Size and location filters are instructions to Claude’s research
-  judgment, not a guaranteed hard filter against a live database —
-  spot-check a sample of results.
 
 - The Job Post Finder tab is deliberately simple (no formulas, no
   hardcoded job boards) — it exists so you can copy a company and its
   keyword variants into whatever search tool you actually want to use,
-  complementing the link-based Quick Links tab rather than replacing it.
+  complementing the link-based Quick Links tab rather than replacing
+  it.
 
 **Open the tool:**
 <https://tjackson8817.github.io/Target-Company-Prompt-Builder/prompt_builder.html>
@@ -412,78 +451,76 @@ postings: real titles, real URLs, real posted dates. Built around an
 explicit anti-hallucination guarantee: report fewer results honestly
 rather than pad the list to look complete.
 
-### The First Decision: Standard or Senior/Executive Search
+### The First Decision: the Senior/Executive Search Toggle
 
-A toggle at the top of the tool, **off by default**, and it changes
-almost everything else about how the tool runs:
+A single toggle at the top of the tool, **off by default**. It doesn't
+just add more depth — it switches the tool to a fundamentally
+different search style, because senior roles and mid-level/IC roles
+behave completely differently in the job market. Know which side of
+this toggle you need before you fill in anything else:
 
-- **Standard mode (toggle off):** single-stage, title-driven search.
-  Best for mid-level and IC roles, which are usually posted with
-  recognizable, close-to-literal titles. Company ceiling: **15 or
-  fewer** — the tested working limit for real per-company depth.
+| | **Toggle OFF — Standard Mode** | **Toggle ON — Senior/Executive Search** |
+|---|---|---|
+| **Best for** | Mid-level and IC roles, usually posted with recognizable, close-to-literal titles | Director / VP / Managing Director / Partner-level roles, frequently filled through internal promotion, executive search firms, or warm referral — often never posted publicly at all |
+| **How it searches** | Single-stage, title-driven search | Two stages: a broad Triage pass, then a focused Deep Dive |
+| **Company ceiling** | **15 or fewer** — the tested working limit for real per-company depth | Triage: **~30 companies**. Deep Dive: **5 or fewer** — both tested numbers, not guesses |
+| **How your pasted titles are used** | As literal search terms | **Ignored** during Triage (status-only check); used during Deep Dive as category-matching hints (Seniority + Domain + Function), not literal phrases |
+| **What you get back** | A postings table (or .xlsx) with Near-Misses | Triage: a status sheet per company (green = active senior posting / yellow = only below-senior postings / white = no visible postings / lock = not searchable), plus a ready-to-use LinkedIn saved-search URL for every green/yellow company. Deep Dive: full postings + Near-Misses, same shape as Standard mode |
 
-- **Senior/Executive Search (toggle on):** Director/VP/Managing
-  Director/Partner-level roles are frequently filled through internal
-  promotion, executive search firms, or warm referral — never posted
-  publicly at all — so a single search style doesn’t serve this
-  population well. This mode splits into two stages instead:
+**If you're not sure which you need:** if the title you're searching
+for could plausibly show up verbatim in a job posting (e.g. "Senior
+Financial Analyst," "Product Manager"), use Standard mode. If you're
+searching for something like "Director" or above where the real
+opening — if one even exists — is unlikely to be posted with that
+exact title, turn the toggle on.
 
-  - **Stage 1, Triage:** one fast, broad check per company (works up to
-    ~30 companies) — does this company have *any* visible senior-level
-    posting right now? Any titles you pasted are ignored at this stage.
-    Output is a status per company (green = active senior posting /
-    yellow = only below-senior postings / white = no visible postings /
-    lock = not searchable), plus a ready-to-use LinkedIn saved-search
-    URL for every green/yellow company.
-  - **Stage 2, Deep Dive:** full-depth search on **5 companies or
-    fewer** — a tested number, not a guess. Runs a real 4-query
-    treatment per company (LinkedIn Jobs, the company’s own careers
-    site, Indeed/Glassdoor/ZipRecruiter, plus a direct verification
-    fetch on the best lead). Pasted titles are used here as
-    category-matching hints (Seniority + Domain + Function), not literal
-    phrases.
+**Senior/Executive Search's two stages, in more detail:**
 
-### Key Sections & Options
+- **Stage 1, Triage:** one fast, broad check per company — does this
+  company have *any* visible senior-level posting right now? Works up
+  to ~30 companies in one pass.
+- **Stage 2, Deep Dive:** full-depth search on 5 companies or fewer.
+  Runs a real 4-query treatment per company (LinkedIn Jobs, the
+  company's own careers site, Indeed/Glassdoor/ZipRecruiter, plus a
+  direct verification fetch on the best lead).
 
-- **Bulk paste from your tracker:** select Company and Suggested Job
-  Title Keywords from your Prompt Builder output, paste, and Parse rows
-  — reads the real tab-separated columns directly, keeping each
-  company’s own specific title variants (semicolon-separated cells are
-  kept as OR alternatives to search, not garbled into one string). In
-  Executive mode, these titles are ignored during Triage and used as
-  matching hints during Deep Dive — nothing pasted is wasted, it’s just
-  used differently by stage.
+### Fields
 
-- **What to search for:** typed companies and/or titles as an
-  alternative or supplement to bulk paste, combined via Any (OR), All
-  (AND), or a custom boolean expression.
+These apply the same way regardless of which mode the toggle above is
+set to:
 
-- **Scope:** recency window (7/14/30 days or any time), location, and
-  max postings per combination. There’s no “which sources to check”
-  toggle anymore — every doable source (LinkedIn Jobs, Indeed, each
-  company’s own careers page, Google Jobs, Glassdoor, ZipRecruiter) is
-  checked by default, and the results say plainly, per company, which
-  were actually checked versus which couldn’t be (login-gated, no public
-  listings page, etc.).
+| Field | Required? | Description |
+|---|---|---|
+| Bulk paste from your tracker | Optional | Select Company and Suggested Job Title Keywords from your Prompt Builder output, paste, and Parse rows — reads the real tab-separated columns directly, keeping each company's own specific title variants (semicolon-separated cells are kept as OR alternatives to search, not garbled into one string). |
+| What to search for (typed) | Optional — alternative or supplement to bulk paste | Companies and/or titles, combined via Any (OR), All (AND), or a custom boolean expression. |
+| Recency window | Required, has a default | 7 / 14 / 30 days, or any time. |
+| Location | Optional | |
+| Max postings per combination | Optional, has a default | |
 
-- **Output:** table in chat (default) or a downloadable Excel file with
-  color-coded recency and date-confidence. Triage runs output a single
-  status sheet/table instead of a postings list.
+There's no "which sources to check" toggle — every doable source
+(LinkedIn Jobs, Indeed, each company's own careers page, Google Jobs,
+Glassdoor, ZipRecruiter) is checked by default, and the results say
+plainly, per company, which were actually checked versus which
+couldn't be (login-gated, no public listings page, etc.).
+
+**Output:** always a downloadable Excel file (.xlsx) with color-coded
+recency and date-confidence — no chat-table option anymore. Triage
+runs output a single status sheet instead of a postings list.
 
 ### Claude Settings Required
 
 - Web search — required; without it there is no way to find anything
   real
 
-- Code execution and file creation — only if the Excel output format is
-  chosen
+- Code execution and file creation — required, since every mode's
+  output is always a downloadable .xlsx
 
 ### What You Get Back
 
-A results table (or .xlsx) grouped by company, with every posting’s real
+A downloadable Excel workbook grouped by company, with every posting's real
 URL shown directly — required on every row, never summarized away.
-Followed by a separate Near-Misses section listing postings that relate
-to your search but don’t fully qualify, each with an explicit Reason, so
+Followed by a separate Near-Misses sheet listing postings that relate
+to your search but don't fully qualify, each with an explicit Reason, so
 nothing just silently disappears. In Executive mode, near-misses are the
 *expected majority* of what comes back, not a sign of a weak search.
 
@@ -491,7 +528,7 @@ nothing just silently disappears. In Executive mode, near-misses are the
 
 - A batch-size warning appears above the generated prompt once your
   company count goes over the working ceiling for your current
-  mode/stage — 15 for Standard, ~30 for Triage, 5 for Deep Dive. It’s
+  mode/stage — 15 for Standard, ~30 for Triage, 5 for Deep Dive. It's
   informational only, nothing is truncated, but expect a larger batch to
   run long or come back thinner per company.
 
@@ -501,7 +538,7 @@ nothing just silently disappears. In Executive mode, near-misses are the
   closed or stale postings as if they were current.
 
 - **KPMG, Accenture, and EY get an automatic extra caution note**
-  whenever they’re in your list. Specific leads for these three have
+  whenever they're in your list. Specific leads for these three have
   repeatedly turned out to be dead on direct verification across
   multiple real runs, at every seniority level tested — not a judgment
   on them as employers, just an operational heads-up about how their
@@ -512,7 +549,7 @@ nothing just silently disappears. In Executive mode, near-misses are the
   listings carry stale or ambiguous dates.
 
 - Genuinely fresh, senior-level postings at large firms are often rarer
-  than expected — an honest “nothing qualified” result across several
+  than expected — an honest "nothing qualified" result across several
   companies is a real, useful outcome, not a sign the tool failed.
 
 **Open the tool:**
@@ -532,56 +569,37 @@ in what’s actually true about you. Nothing is invented: a real, honestly
 named gap is a correct answer; a fabricated qualification is not
 acceptable under any framing.
 
-### Key Sections & Options
+### Fields
 
-- **The job posting:** paste the full text, not a summary — company name
-  is optional but scopes the recruiter search precisely.
-
-- **Your resume:** paste your complete resume text, plus any optional
-  additional context not yet reflected in it.
-
-- **What to generate:** five independent checkboxes — ATS/Keyword Gap
-  Analysis, Resume Bullet Rewrite Suggestions, Cover Letter Draft,
-  Qualifications Match Letter (T-Letter, always kept to 1 page), and
-  Pivot Positioning Notes. Cover letter tone (Warm/Formal/Direct) and
-  length (1 page standard, or 2–3 pages for executive/federal roles) are
-  both selectable.
-
-- **Pivot Positioning Notes (default: off):** for when this posting is a
-  genuine change of direction from your resume's titles, not a same-lane
-  application. Names what to emphasize, what to minimize or reframe
-  (never hide), any real skill/certification gaps worth naming, and a
-  short honest answer for *why this move* — grounded in a real
-  connective thread, not a generic passion statement. Bound by the same
-  no-invention rule as everything else this tool produces.
-
-- **Apply the suggestions directly:** two additional checkboxes, nested
-  under Gap Analysis and Bullet Rewrites respectively, produce a
-  ready-to-use updated resume with those specific suggestions actually
-  applied — check one, the other, or both. Each is disabled until its
-  parent checkbox is on, since the update is built strictly from what
-  that table already justified.
-
-- **Recruiter identification:** on by default, runs a two-tier search
-  before drafting either letter. Tier 1 matches by department/function.
-  If that finds nothing confident, Tier 2 broadens by location and
-  role-appropriate seniority — but never auto-picks a Tier 2 candidate;
-  it lists them for you to choose from while still drafting the letter
-  in full with a generic salutation.
+| Field | Required? | Description |
+|---|---|---|
+| The job posting | Required | Paste the full text, not a summary. |
+| Company name | Optional | Scopes the recruiter search precisely. |
+| Your resume | Required | Paste your complete resume text. |
+| Additional context | Optional | Anything true about you not yet reflected in your resume. |
+| ATS/Keyword Gap Analysis | Optional checkbox | |
+| Resume Bullet Rewrite Suggestions | Optional checkbox | |
+| Cover Letter Draft | Optional checkbox | Tone (Warm/Formal/Direct) and length (1 page standard, or 2–3 pages for executive/federal roles) both selectable. |
+| Qualifications Match Letter (T-Letter) | Optional checkbox | Always kept to 1 page. |
+| Pivot Positioning Notes | Optional checkbox, off by default | For when this posting is a genuine change of direction from your resume's titles, not a same-lane application. |
+| Apply Gap Analysis suggestions to a full updated resume | Optional checkbox | Disabled until the parent Gap Analysis checkbox is on. |
+| Apply Bullet Rewrite suggestions to a full updated resume | Optional checkbox | Disabled until the parent Bullet Rewrites checkbox is on. |
+| Try to identify the recruiter for this posting? | Optional toggle, on by default | Runs a two-tier search before drafting either letter. |
 
 ### Claude Settings Required
 
 - Web search — only if recruiter identification is left on (the default)
 
-- Code execution and file creation — only if the Word document output
-  format is chosen
+- Code execution and file creation — always needed, since every result
+  now comes back as a downloadable Word document
 
 ### What You Get Back
 
-Real markdown or Word tables (never plain dashes standing in for one)
-for the Gap Analysis and Bullet Rewrites, genuine letter formatting
-(date, salutation, paragraph breaks, closing) for any letter, and — if
-selected — an updated resume with vetted changes already applied.
+Real Word tables with a shaded header row (never plain dashes standing
+in for one) for the Gap Analysis and Bullet Rewrites, genuine letter
+formatting (date, salutation, paragraph breaks, closing) for any
+letter, and — if selected — an updated resume with vetted changes
+already applied.
 
 ### Worth Knowing
 
@@ -612,37 +630,22 @@ Introduction Path, and Category — and drafts the actual outreach
 messages, tailored per company and per stage of the relationship, rather
 than one generic template with the name swapped in.
 
-### Key Sections & Options
+### Fields
 
-- **Paste from your tracker:** Ctrl+click (Cmd+click on Mac) to select
-  Company, Key Contacts/Priority Titles, Warm Introduction Path, and
-  Category together in Excel — these columns aren’t adjacent in the
-  tracker, so this non-contiguous-selection trick is what makes bulk
-  paste practical. Each parsed row also gets an optional Target Audience
-  field (Recruiter, Hiring Manager, Cold Outreach, or Warm Outreach)
-  that further shapes the message.
-
-- **Message goal:** First outreach, Follow-up (no response yet),
-  Thank-you (after a call/interview), or Staying in touch — a global
-  setting that changes the actual instructions given, not just the
-  wording. Anything other than "First outreach" adds a per-row Context
-  Notes field (what you discussed, when you first reached out, or your
-  reason for reconnecting, depending on the goal) that grounds the
-  message instead of leaving it generic or risking fabrication.
-
-- **Message settings:** Channel — LinkedIn connection request (strict
-  ~300-character limit, enforced automatically), LinkedIn
-  InMail/message, or Email (adds a required, specific Subject line per
-  variant). Tone — Warm/casual, Formal/executive, or Direct/concise.
-  Your background (optional) grounds messages in real experience rather
-  than filler.
-
-- **Output:** table in chat (default) or a downloadable Word document.
+| Field | Required? | Description |
+|---|---|---|
+| Bulk paste from your tracker | Optional | Ctrl+click (Cmd+click on Mac) to select Company, Key Contacts/Priority Titles, Warm Introduction Path, and Category together in Excel — these columns aren't adjacent in the tracker, so this non-contiguous-selection trick is what makes bulk paste practical. |
+| Target Audience (per row) | Optional | Recruiter, Hiring Manager, Cold Outreach, or Warm Outreach — further shapes the message. |
+| Message goal | Required, global setting | First outreach, Follow-up (no response yet), Thank-you (after a call/interview), or Staying in touch — changes the actual instructions given, not just the wording. |
+| Context Notes (per row) | Conditionally required | Only appears once Message Goal is anything other than "First outreach." What you discussed, when you first reached out, or your reason for reconnecting, depending on the goal. |
+| Channel | Required, global setting | LinkedIn connection request (strict ~300-character limit, enforced automatically), LinkedIn InMail/message, or Email (adds a required, specific Subject line per variant). |
+| Tone | Required, global setting | Warm/casual, Formal/executive, or Direct/concise. |
+| Your background | Optional | Grounds messages in real experience rather than filler. |
 
 ### Claude Settings Required
 
-- Code execution and file creation — only if the Word document output
-  format is chosen
+- Code execution and file creation — always needed, since every result
+  now comes back as a downloadable Word document
 
 ### What You Get Back
 
@@ -687,57 +690,41 @@ Afterward, the specific things you actually discuss become the Context
 Notes for a genuinely grounded thank-you message back in Outreach
 Message Builder (Step 3b), closing the loop.
 
-### Key Sections & Options
+### The Mode Toggle
 
-- **Three modes, not one generic form:** a toggle at the top of the page
-  switches the entire field set and the entire generated guide, not just
-  a couple of options — **Recruiter Screen** (a qualifications T-chart,
-  a tight “tell me about yourself” script, coached answers for the
-  gap/leaving question and the salary question, objection reframing for
-  any concerns you named, standard logistics questions, recruiter-
-  appropriate questions to ask), **Hiring Manager Interview** (built for
-  a real, time-boxed video call — company/role research, a resume-to-JD
-  gap map, objection reframing, interviewer research, a Candidate SWOT
-  Analysis with honest weakness-mitigation talking points, a video-call
-  logistics checklist tied to your actual platform, pacing scaled to
-  your actual call length, your top 3-4 STAR-structured stories rather
-  than an exhaustive list, and HM-appropriate questions to ask), and
-  **General/Other** (the fuller original structure — including its own
-  objection reframing and the same Candidate SWOT Analysis — as a
-  fallback for technical rounds, panels, and final rounds).
+A toggle at the top of the page switches the entire field set and the
+entire generated guide, not just a couple of options:
 
-- **Shared inputs across all three modes:** company, role, job
-  description, and your resume — paste text, or attach the files
-  directly when you paste the generated prompt into Claude instead. An
-  optional field for naming what you're worried a hiring manager will
-  hold against you (a gap, a pivot, short tenures, overqualification)
-  drives a dedicated Objection Reframing section in every mode — left
-  blank, that section falls back to general guidance instead of
-  inventing your situation.
+| | **Recruiter Screen** | **Hiring Manager Interview** | **General/Other** |
+|---|---|---|---|
+| Built for | A phone/recruiter screen | A real, time-boxed video call | Technical rounds, panels, final rounds |
+| Distinctive content | Qualifications T-chart, a tight "tell me about yourself" script, the salary question (real market data), standard logistics questions | Company/role research, resume-to-JD gap map, interviewer research, a Candidate SWOT Analysis, a video-call logistics checklist, pacing scaled to your actual call length, top 3–4 STAR stories | The fuller original structure — its own objection reframing and the same Candidate SWOT Analysis |
+| Objection Reframing | Included | Included | Included |
 
-- **Optional STAR Stories field (Hiring Manager and General/Other
-  modes):** write your own Situation/Task/Action/Result for up to 3
-  stories if you already know which ones you want to use. The guide
-  uses them exactly as written instead of just pointing you to a resume
-  bullet, filling any remaining slot up to 3-4 the usual way. Leave all
-  three blank and nothing changes — same fallback as before. Not shown
-  in Recruiter Screen mode, which doesn't use behavioral-style
-  questions.
+### Fields
 
-- **Mode-specific fields:** Recruiter Screen adds location (for salary
-  research grounding), an optional reason for a gap or departure, and an
-  optional target salary range. Hiring Manager adds call length,
-  platform, and an interviewer list (bulk-paste or manual).
-  General/Other adds an interview-stage selector and its own separate
-  interviewer list.
+| Field | Required? | Description |
+|---|---|---|
+| Company | Required | |
+| Role | Required | |
+| Job description | Required | Paste text, or attach the file directly when you paste the generated prompt into Claude. |
+| Your resume | Required | Paste text, or attach the file directly. |
+| What you're worried will be held against you | Optional | A gap, a pivot, short tenures, overqualification — drives a dedicated Objection Reframing section in every mode. Left blank, that section falls back to general guidance instead of inventing your situation. |
+| STAR Stories (Hiring Manager and General/Other only) | Optional, up to 3 | Write your own Situation/Task/Action/Result if you already know which stories you want to use — the guide uses them exactly as written instead of just pointing you to a resume bullet. Leave blank and nothing changes from the usual fallback. Not shown in Recruiter Screen mode. |
+| Location (Recruiter Screen only) | Required in that mode | Grounds the salary-question research. |
+| Reason for a gap or departure (Recruiter Screen only) | Optional | |
+| Target salary range (Recruiter Screen only) | Optional | |
+| Call length, platform (Hiring Manager only) | Required in that mode | |
+| Interviewer list (Hiring Manager and General/Other) | Optional, bulk-paste or manual | Tracked separately per mode — switching modes won't carry interviewers over. |
+| Interview stage (General/Other only) | Required in that mode | |
 
 ### Claude Settings Required
 
 - Web search — for company, interviewer, and (in Recruiter Screen mode)
   real salary market-data research
 
-- Code execution and file creation — only if the Word document output
-  format is chosen
+- Code execution and file creation — always needed, since every guide
+  now comes back as a downloadable Word document
 
 ### What You Get Back
 
@@ -813,45 +800,26 @@ unravel and cost you the offer entirely. Leaving the competing-offer
 field blank is the honest, expected default, not a weaker use of the
 tool, and the guide will not imply one exists anywhere in its output.
 
-### Key Sections & Options
+### Fields
 
-- **The role, company, and location:** location specifically grounds
-  both the general market research and the company-specific research
-  that follows.
-
-- **Your resume:** the only source the tool is allowed to draw from when
-  identifying differentiators to justify going above the initial number.
-
-- **The offer so far:** paste or describe whatever you actually have —
-  partial is fine, and the tool still produces useful research and
-  differentiator sections even with nothing here yet.
-
-- **Target number and priorities (optional):** your walk-away number,
-  plus what matters most to you beyond salary, which directly weights
-  which levers the guide prioritizes if base salary itself turns out to
-  be capped.
-
-- **Competing offer (optional):** only fill this in if you actually have
-  one, with real figures — see the guardrail above.
-
-- **Market data follows a source hierarchy, not a flat list:** BLS.gov
-  and the current-year Robert Half Salary Guide are treated as primary
-  sources when they cover the role, since both are methodologically
-  transparent rather than purely self-reported. Salary.com, Payscale,
-  SalaryExpert, and levels.fyi/Glassdoor are used as secondary,
-  directional data points to build a range around those primary
-  figures — never as the sole basis for a number. The guide names which
-  source each figure came from, and flags plainly when a range leans
-  heavily on secondary sources because primary data wasn't available for
-  that specific role.
+| Field | Required? | Description |
+|---|---|---|
+| Company | Required | |
+| Role | Required | |
+| Location | Required | Grounds both the general market research and the company-specific research. |
+| Your resume | Required | The only source the tool is allowed to draw from when identifying differentiators to justify going above the initial number. |
+| The offer so far | Optional | Paste or describe whatever you actually have — partial is fine, and the tool still produces useful research and differentiator sections even with nothing here yet. |
+| Target or walk-away number | Optional | |
+| What matters most to you beyond salary | Optional | Directly weights which levers the guide prioritizes if base salary itself turns out to be capped. |
+| Competing offer | Optional | Only fill this in if you actually have one, with real figures — see the guardrail above. |
 
 ### Claude Settings Required
 
 - Web search — for market compensation research and company-specific
   compensation research, both required for real, sourced data
 
-- Code execution and file creation — only if the Word document output
-  format is chosen
+- Code execution and file creation — always needed, since every guide
+  now comes back as a downloadable Word document
 
 ### What You Get Back
 
@@ -895,53 +863,39 @@ or function. A standalone tool, not part of the Step 0–5 funnel, since
 it's something you'd reach for independent of where you are in an
 active application process.
 
-### Key Sections & Options
+### Fields
 
-- **Your background:** paste your resume/professional background
-  (required, unless you attach a file instead — see below), your current
-  LinkedIn profile text (optional, preserves existing voice), target
-  role and industry, management level, and an optional preferred custom
-  URL.
-
-- **Attach a file instead of pasting:** a checkbox lets you skip the
-  text fields and attach your resume and/or a downloaded LinkedIn
-  profile PDF directly to the Claude message instead — same pattern as
-  attaching a job description or resume file in Resume & Cover Letter
-  Tailoring or Interview Prep Guide Builder.
-
-- **What to generate:** seven independent checkboxes — Headline, About
-  section, Experience rewrites, Skills, Custom URL suggestion,
-  Recommendation Request Guidance, and profile banner images.
-
-- **Experience rewrite scope:** a three-way choice — 3 most recent
-  (default), All positions, or a Custom number (1–20) — rather than a
-  fixed count.
-
-- **Banner options:** how many banners (1–5, default 3) and a visual
-  style — Let Claude decide, Abstract/geometric, Industry motif, or
-  Minimalist. Generated programmatically (Python's Pillow library), not
-  photorealistic images.
-
-- **Output format:** Text in chat (default) or Downloadable Word
-  document — same toggle pattern as Resume & Cover Letter Tailoring and
-  Interview Prep Guide Builder. Banner images always come through as
-  separate `.png` files either way.
+| Field | Required? | Description |
+|---|---|---|
+| Your resume/professional background | Required, unless attaching a file instead | |
+| Attach a file instead of pasting | Optional checkbox | Skip the text fields and attach your resume and/or a downloaded LinkedIn profile PDF directly to the Claude message instead. |
+| Your current LinkedIn profile text | Optional | Preserves existing voice. |
+| Target role and industry | Optional | |
+| Management level | Required | |
+| Preferred custom URL | Optional | |
+| Headline | Optional checkbox | |
+| About section | Optional checkbox | |
+| Experience rewrites | Optional checkbox | Scope is a three-way choice — 3 most recent (default), All positions, or a Custom number (1–20). |
+| Skills | Optional checkbox | |
+| Custom URL suggestion | Optional checkbox | |
+| Recommendation Request Guidance | Optional checkbox | |
+| Profile banner images | Optional checkbox | How many banners (1–5, default 3) and a visual style — Let Claude decide, Abstract/geometric, Industry motif, or Minimalist. Generated programmatically (Python's Pillow library), not photorealistic images. |
 
 ### Claude Settings Required
 
 - Web search — recommended, not required, for researching current
   in-demand skills for your target role/industry
 
-- Code execution and file creation — needed if the profile banner
-  images are on, or if Downloadable Word document output is chosen
+- Code execution and file creation — always needed, since every result
+  now comes back as a downloadable Word document, and it's needed for
+  the profile banner images too
 
 ### What You Get Back
 
 A response organized by whichever sections you toggled on, each with
 its character count stated so you can confirm it fits LinkedIn's real
-limit before pasting it in — delivered as either a chat response or a
-downloadable Word document per your Output Format choice, plus separate
-banner `.png` files if requested, regardless of that choice.
+limit before pasting it in — delivered as a downloadable Word document,
+plus separate banner `.png` files if requested.
 
 ### Worth Knowing
 
@@ -976,60 +930,43 @@ banner `.png` files if requested, regardless of that choice.
 
 Finds the top 3 most on-brand, recent, real articles worth sharing —
 ranked automatically against your actual brand keywords — then drafts
-**two genuinely different posts for each**: an Informational Share and a
-Position/Stance take. That's 6 fully drafted posts in one response, so
-you're choosing between real options rather than approving one draft.
-Optionally builds matching artwork for whichever one you pick. Useful
-whether or not you're actively job hunting.
+**two genuinely different post options for each** (an Informational
+Share and a Position/Stance take, 6 fully drafted posts total), plus
+optional matching artwork for whichever one you pick. Useful whether
+or not you're actively job hunting.
 
-### Key Sections & Options
+### Fields
 
-- **What counts as "on-brand":** your brand keywords/topics (the field
-  that makes "impactful" mean something specific to you, not generic
-  trending news), a recency window (24 hours to a week), optional
-  audience, source guidance, what you've already covered recently so the
-  run doesn't repeat itself, and optional ongoing themes you're building
-  a position on — thought leadership compounds across posts connected to
-  a few recognizable throughlines, not one-off reactions.
-
-- **Your brand identity:** name, tagline, and an optional eyebrow line
-  (defaults to "WORTH YOUR ATTENTION") feed the artwork and post
-  signature. An optional background/expertise field grounds the
-  Position/Stance variant in something real. None of this is remembered
-  automatically — closing the tab clears it like every other field — so
-  use the **Save/Load brand identity** buttons to keep a small `.json`
-  file with these fields instead of retyping them each time.
-
-- **Options:** generate hashtags (on by default — 3-5 per variant, with
-  the Position/Stance variant's hashtags drawing from both the article
-  and your background/themes to build a recognizable community of
-  interest over time), generate artwork for whichever post you end up
-  choosing (on by default, a separate follow-up step scoped to just that
-  one post, not all 6 drafts), and output format (chat table by default,
-  or a downloadable Word document laying out all 3 articles × 2 variants
-  for offline comparison). There's no separate "end with a question?"
-  toggle — that judgment now lives inside the Position/Stance variant
-  itself, decided per-take rather than as one global setting.
+| Field | Required? | Description |
+|---|---|---|
+| Brand keywords/topics | Required | Makes "impactful" specific to your niche rather than generic trending news. |
+| How recent? | Required, has a default | Last 24h / 48h / 3 days (default) / 1 week. |
+| Who's this for? | Optional | Shapes which angle counts as most impactful. |
+| Sources to prioritize or avoid | Optional | |
+| Already covered recently | Optional | Avoids repeating a topic you already posted about. |
+| Ongoing themes you're building a position on | Optional | Thought leadership compounds across posts connected to a few recognizable throughlines — also feeds the Position/Stance variant's hashtags. |
+| Your name, tagline, eyebrow line | Feed the artwork and post signature | Not remembered automatically — use Save brand identity (.json) / Load brand identity to keep them between sessions. |
+| Your background/expertise | Optional | Grounds the Position/Stance variant in something real. Without it, that variant stays general and analytical rather than inventing a personal claim. |
+| Generate hashtags? | Optional toggle, on by default | 3–5 hashtags per variant. |
+| Generate artwork for whichever I end up choosing? | Optional toggle, on by default | A downloadable `.png` (1200×630), generated as a separate follow-up step scoped to just the one post you pick — not all 6 drafts upfront. Claude only. |
 
 ### Claude Settings Required
 
 - Web search — required to find real, current articles
 
-- Code execution and file creation — only if artwork generation is on,
-  or if you choose the downloadable Word document output
+- Code execution and file creation — always needed, since Step 1's
+  text always comes back as a downloadable Word document, and artwork
+  generation (if used) needs it too
 
 ### What You Get Back
 
-Step 1, all in one response: for each of the 3 ranked articles, context
-(headline, source, published date, free-to-read status, why it ranked
-here), then both variants fully drafted — Variant A (Informational
-Share: a one-to-two-sentence factual summary, minimal commentary, ends
-on a statement) and Variant B (Position/Stance: a real take grounded in
-your background/themes, closing on a question or a statement, whichever
-is judged stronger for that specific take) — each with its own hashtags
-if enabled. Step 2, once you've told Claude which of the 6 you're using:
-a real downloadable `.png` (1200×630) built to match this tool family's
-visual template, Claude only.
+Step 1 (one response): the top 3 ranked candidates, each with context
+(headline, source, free-to-read status, why it ranked here) plus both
+fully drafted variants — Informational Share and Position/Stance —
+each with a URL, the post text, and hashtags. That's 6 complete drafts
+in one response, delivered as a downloadable Word document. Step 2,
+once you tell Claude which of the 6 you're using: a real downloadable
+`.png` matching your brand identity, built for that specific post.
 
 ### Worth Knowing
 
@@ -1038,16 +975,13 @@ visual template, Claude only.
   words (never copied from source), and an honest "fewer than 3 today"
   if genuinely on-brand, free-to-read articles are thin.
 
-- **The Position/Stance variant never invents anything about you.** It
-  leans on real background/themes if you gave them, and stays general
-  and analytical if you didn't — but it never fabricates a claim,
-  credential, or experience either way. This matters more here than in a
-  one-off message, since a fabricated personal anecdote in a public
-  LinkedIn post is out there under your name.
-
 - No markdown formatting anywhere in the output — LinkedIn doesn't
   render it, so asterisks or pound signs would show up as literal stray
   characters.
+
+- **The Position/Stance variant never invents anything about you.** It
+  leans on real background/themes if you gave them, and stays general
+  if you didn't.
 
 - Artwork generation only works in Claude itself — pasting the prompt
   into ChatGPT or another tool will not produce an image, regardless of
@@ -1077,37 +1011,21 @@ language altogether.
 pattern described in Getting Started — it’s a self-contained scanner,
 not a prompt generator.*
 
-### Key Sections & Options
+### Fields
 
-- **Mode toggle:** "Recruiter Message" or "Job Posting" — switches the
-  entire input panel, checklist, and pattern library. These check
-  genuinely different things (a message’s sender vs. a posting’s own
-  legitimacy), so each mode has its own full field set rather than a
-  handful of shared fields with the rest bolted on.
-
-- **Recruiter Message mode:** paste the message text, plus optionally
-  the company they claim to represent and the sender’s email, which
-  together let the tool flag a domain/employer mismatch. Checklist
-  covers profile signals the tool can’t read from text alone — new
-  profile, few connections, no verification badge, unrelated profession,
-  AI-generated/generic photo, not listed as an employee, few mutuals,
-  little activity. Photo-related checks link out to free tools (Google
-  Images/TinEye/Bing; Is It AI?/Quillbot) so you can check without
-  leaving the page — clearly marked optional, never auto-run.
-
-- **Job Posting mode:** paste the posting text, plus optionally the
-  company it’s for, an application email/link, and where you found it.
-  Checklist covers listing-legitimacy signals — evergreen/repeatedly
-  reposted listings, exact text duplicated for other companies, no
-  hiring manager or team named, thin-to-no independent company presence,
-  no application deadline ever, chat-only interview process, not found
-  on the company’s own careers page. Patterns cover posting-specific
-  scam categories: equipment/activation fees, reshipping and
-  payment-processing scams, unrealistic pay for no experience, financial
-  info requested at the application stage, and more.
-
-- **Custom red flags:** add your own phrases to check for, per mode,
-  session-only.
+| Field | Mode | Required? | Description |
+|---|---|---|---|
+| Mode toggle | Both | Required | "Recruiter Message" or "Job Posting" — switches the entire input panel, checklist, and pattern library. |
+| Message text | Recruiter Message | Required | |
+| Company they claim to represent | Recruiter Message | Optional | Lets the tool flag a domain/employer mismatch. |
+| Sender's email | Recruiter Message | Optional | Same purpose as above. |
+| Profile checklist (new profile, few connections, no verification badge, etc.) | Recruiter Message | Optional, self-reported | Signals the tool can't read from text alone. |
+| Posting text | Job Posting | Required | |
+| Company it's for | Job Posting | Optional | |
+| Application email/link | Job Posting | Optional | |
+| Where you found it | Job Posting | Optional | |
+| Listing checklist (evergreen/reposted, no hiring manager named, etc.) | Job Posting | Optional, self-reported | |
+| Custom red flags | Both | Optional | Add your own phrases to check for, per mode, session-only. |
 
 ### Claude Settings Required
 
@@ -1150,11 +1068,33 @@ stays legible.
 ## Make It Your Own
 
 None of this is locked down. Every tool is just a starting point — if a
-field, a wording, a default, or an entire feature doesn’t fit how you
-actually want to work, take that tool’s URL back to a Claude
+field, a wording, a default, or an entire feature doesn't fit how you
+actually want to work, take that tool's URL back to a Claude
 conversation and ask for it to be edited, added to, adjusted, or
-refined. That’s exactly how this whole suite came together in the first
+refined. That's exactly how this whole suite came together in the first
 place: one tool at a time, one conversation at a time, shaped to fit
 real use rather than guessed at in advance. Treat every tool here as a
-draft you’re free to keep improving, not a finished product to work
+draft you're free to keep improving, not a finished product to work
 around.
+
+**Two easy ways to actually make a change:**
+
+- **Upload the output and ask for the change.** Run a tool, get a
+  result back (a tracker, a guide, a draft), then upload that same file
+  into a Claude conversation and describe what you want different — a
+  column added to the tracker, a section reworded, a tone adjusted.
+  Claude can revise the actual file directly instead of you starting
+  over from scratch.
+- **Upload the .txt prompt and ask for the change.** Every tool lets
+  you download the generated prompt as a .txt file before you ever
+  paste it into Claude. Upload that file instead of the finished
+  output, and ask Claude to change the instructions themselves — add a
+  new section, tighten a word limit, change a tone rule — so every
+  future run from that tool already reflects the fix.
+- Either way, be specific about what you want changed and why — "make
+  this shorter" works, but "cut this to under 200 words and drop the
+  closing paragraph" gets you there in one pass instead of three.
+- If the fix is something you'll want every time (not just this once),
+  ask Claude to update the tool's actual HTML file, not just this one
+  output — that's how a one-off fix turns into a permanent improvement
+  for the next run.
