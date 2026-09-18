@@ -31,7 +31,10 @@ Profile Builder added as a third ongoing tool August 17, 2026; Target
 Company Prompt Builder section updated August 18, 2026 to add the
 Department Contact Finder step; Interview Prep Guide Builder section
 updated September 1, 2026 to add the Candidate SWOT Analysis and the
-optional STAR Stories field)
+optional STAR Stories field; a Load .txt to edit button added to all
+nine prompt-building tools September 18, 2026, so a previously
+downloaded prompt can be read back into the form and edited instead of
+retyped from scratch)
 
 > **Before You Start — One Claude Setting**
 >
@@ -42,7 +45,7 @@ optional STAR Stories field)
 - [What This Suite Is](#what-this-suite-is)
 - [Getting Started](#getting-started)
 - [The Two Workflows](#the-two-workflows)
-- [How Eight of the Ten Tools Work](#how-eight-of-the-ten-tools-work)
+- [How Nine of the Ten Tools Work](#how-nine-of-the-ten-tools-work)
 - [Claude Settings You'll Need](#claude-settings-youll-need)
 - [Your First Run](#your-first-run)
 - [Quick Reference](#quick-reference)
@@ -76,7 +79,7 @@ you visible on LinkedIn, and the third screens incoming recruiter
 messages or job postings for known scam patterns, since fake recruiter
 outreach and fake job listings have both become common.
 
-Eight of the ten tools work the same simple way: you fill in a short
+Nine of the ten tools work the same simple way: you fill in a short
 form on a web page, it builds a complete, ready-to-use prompt, you copy
 that prompt into a conversation with Claude, and Claude does the actual
 research, writing, or drafting. The tenth — Recruiter Message & Job
@@ -126,7 +129,7 @@ know which before you open anything:
   (screening incoming messages or postings) aren’t steps in the funnel —
   use them any time, whether or not you’re actively job hunting.
 
-## How Eight of the Ten Tools Work
+## How Nine of the Ten Tools Work
 
 Every tool except Recruiter Message & Job Posting Sanity Check follows
 the identical mechanical pattern, so it’s worth understanding once
@@ -140,6 +143,17 @@ rather than per tool:
 
 - Click Copy prompt (or Download .txt), then paste it into a new Claude
   conversation.
+
+- Already have a prompt you downloaded earlier from that same tool and
+  want to tweak one thing instead of retyping the whole form? Every one
+  of these nine tools has a **Load .txt to edit** button next to Copy
+  prompt / Download .txt — pick the file, and it reads the prompt back
+  into every field, including which mode or toggles were selected where
+  a tool has them (e.g. Interview Prep Guide Builder's three modes, Job
+  Posting Finder's Standard/Triage/Deep Dive). Edit whatever you need,
+  then regenerate. This only reliably reads a file that came from that
+  tool's own Download button — a heavily hand-edited file may leave a
+  field or two blank rather than misreading it.
 
 - Claude executes the actual work — live web research, writing, or
   file-building — and returns the result in that conversation.
