@@ -113,3 +113,6 @@ The two modes check genuinely different things — a message's sender vs. a list
 Unlike every other tool in this suite, **this one does not generate a prompt for a separate Claude conversation.** It's a self-contained scanner — the entire check runs in your browser, and the finished result appears immediately. No Claude chat, no copy-paste step, no Claude Settings requirements at all.
 
 It carries the same honesty discipline as the rest of the suite, adapted to what it produces: the score is explicitly labeled "pattern match strength" (message mode) or "listing risk signal strength" (posting mode), not a statistical probability of fraud, since no dataset exists to calculate a true probability honestly. A clean result never implies legitimacy is confirmed, and a flagged one is never treated as proof of a scam — both push the user back toward verifying independently.
+
+
+
