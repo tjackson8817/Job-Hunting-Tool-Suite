@@ -1,320 +1,285 @@
 <!DOCTYPE html>
+<!--
+  Beacon — OT Career Target List Builder
+  Part of the Job Hunting Tool Suite
+  Copyright (c) 2026 Tom Jackson. All rights reserved.
+  See LICENSE for terms of use.
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>JobRadar — Job Hunting Tool Suite</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
-
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-
-<!-- Open Graph / Facebook, LinkedIn, Slack -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/">
-<meta property="og:title" content="JobRadar — Job Hunting Tool Suite">
-<meta property="og:description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
-<meta property="og:image" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="JobRadar — Job Hunting Tool Suite">
-<meta name="twitter:description" content="10 free tools that turn a job search into a repeatable, step-by-step process — no install, no account, runs entirely in your browser.">
-<meta name="twitter:image" content="https://tjackson8817.github.io/Job-Hunting-Tool-Suite/og-image.png">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Tom Jackson">
+<meta name="copyright" content="© 2026 Tom Jackson. All rights reserved.">
+<title>Beacon — OT Career Target List Builder</title>
 <style>
-  :root{
-    --navy:#0f2d3d;
-    --blue:#1b6fa8;
-    --teal:#0f9b8e;
-    --bg:#f4f7f9;
-    --card:#ffffff;
-    --border:#d7e0e5;
-    --text:#1c2b33;
-    --muted:#5b6b73;
+  :root {
+    --bg: #f5f6f4; --surface: #ffffff; --surface-2: #eef0ed;
+    --ink: #1c2124; --ink-soft: #565f5f; --ink-mute: #8a928f; --border: #dcdfda;
+    --accent: #1f4b5c; --accent-soft: #e4edef;
+    --high: #2e6b46; --high-bg: #e8f2ea;
+    --medium: #a4650a; --medium-bg: #faf0e0;
+    --low: #5f6864; --low-bg: #eceeec;
+    --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --radius: 10px;
   }
-  *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-  }
-  header{
-    background:linear-gradient(135deg,var(--navy),var(--blue));
-    color:#fff;
-    padding:56px 32px 48px;
-    text-align:center;
-  }
-  header h1{margin:0 0 10px 0;font-size:32px;}
-  header p{margin:0 auto;opacity:.88;font-size:16px;max-width:560px;line-height:1.5;}
-  .logo-row{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:14px;
-    margin-bottom:4px;
-  }
-  .logo-row svg{flex-shrink:0;}
-  .logo-row h1{margin:0;}
-  .wrap{
-    max-width:1000px;
-    margin:0 auto;
-    padding:40px 24px 60px;
-  }
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2, 1fr);
-    gap:22px;
-  }
-  .grid-3{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:20px;
-  }
-  @media (max-width:720px){
-    .grid{grid-template-columns:1fr;}
-    .grid-3{grid-template-columns:1fr;}
-  }
-  @media (max-width:960px) and (min-width:721px){
-    .grid-3{grid-template-columns:repeat(2, 1fr);}
-  }
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:26px 26px 24px;
-    display:flex;
-    flex-direction:column;
-    box-shadow:0 1px 3px rgba(15,45,61,0.06);
-  }
-  .step-badge{
-    display:inline-block;
-    background:#e7f1f7;
-    color:var(--blue);
-    font-size:11px;
-    font-weight:700;
-    letter-spacing:.5px;
-    padding:4px 10px;
-    border-radius:20px;
-    margin-bottom:14px;
-    width:fit-content;
-  }
-  .card h2{
-    margin:0 0 10px 0;
-    font-size:19px;
-    color:var(--navy);
-  }
-  .card p{
-    margin:0 0 20px 0;
-    font-size:14px;
-    color:var(--muted);
-    line-height:1.55;
-    flex-grow:1;
-  }
-  .btn{
-    display:inline-block;
-    background:var(--teal);
-    color:#fff;
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:7px;
-    text-align:center;
-    transition:background .15s;
-  }
-  .btn:hover{background:#0c8579;}
-  .btn-row{display:flex;gap:10px;flex-wrap:wrap;}
-  .btn-secondary{
-    display:inline-block;
-    background:#e7f1f7;
-    color:var(--blue);
-    text-decoration:none;
-    font-size:14px;
-    font-weight:600;
-    padding:10px 18px;
-    border-radius:7px;
-    text-align:center;
-    transition:background .15s;
-  }
-  .btn-secondary:hover{background:#d9e9f2;}
-  .flow{
-    margin-top:44px;
-    background:#eef4f7;
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:22px 26px;
-  }
-  .flow h3{
-    margin:0 0 10px 0;
-    color:var(--navy);
-    font-size:16px;
-  }
-  .flow p{
-    margin:0;
-    font-size:14px;
-    color:var(--muted);
-    line-height:1.6;
-  }
-  footer{
-    text-align:center;
-    padding:28px 24px 40px;
-    font-size:13px;
-    color:var(--muted);
-  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); line-height: 1.5; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+
+  .masthead { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 1rem; }
+  .wordmark h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin: 0; font-family: Georgia, "Times New Roman", serif; }
+  .wordmark span.tag { font-size: 13px; color: var(--ink-soft); font-family: var(--mono); display: block; margin-top: 2px; }
+
+  .fence { display: flex; gap: 3px; margin: 1rem 0 1.75rem; height: 14px; align-items: flex-end; }
+  .fence span { width: 3px; background: var(--accent); opacity: 0.35; }
+  .fence span:nth-child(4n) { height: 14px; opacity: 0.7; }
+  .fence span:not(:nth-child(4n)) { height: 8px; }
+
+  .picker-row { display: flex; gap: 10px; align-items: center; margin-bottom: 1.75rem; flex-wrap: wrap; }
+  select { font-size: 14px; padding: 9px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); font-family: var(--sans); min-width: 280px; }
+  .btn { font-size: 13px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; }
+  .btn.secondary { background: var(--surface); color: var(--accent); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem; margin-bottom: 1.25rem; }
+  .card h2 { font-size: 16px; margin: 0 0 4px; }
+  .card .sub { font-size: 13px; color: var(--ink-mute); margin: 0 0 1rem; }
+
+  .naics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 780px) { .naics-grid { grid-template-columns: 1fr; } }
+  .naics-chip { display: inline-block; font-family: var(--mono); font-size: 12px; background: var(--surface-2); padding: 3px 9px; border-radius: 6px; margin: 2px 4px 2px 0; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; letter-spacing: .03em; color: var(--ink-mute); font-weight: 600; white-space: nowrap; }
+  td.num { text-align: center; font-family: var(--mono); }
+
+  .badge { font-size: 10.5px; padding: 2px 8px; border-radius: 6px; font-weight: 600; white-space: nowrap; }
+  .badge.high { background: var(--high-bg); color: var(--high); }
+  .badge.medium { background: var(--medium-bg); color: var(--medium); }
+  .badge.low { background: var(--low-bg); color: var(--low); }
+  .badge.conf-verified { background: var(--high-bg); color: var(--high); }
+  .badge.conf-estimate { background: var(--medium-bg); color: var(--medium); }
+  .badge.conf-unknown { background: var(--low-bg); color: var(--low); }
+
+  .empty { text-align: center; padding: 3rem 1rem; color: var(--ink-mute); font-size: 14px; }
+  footer.note { margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 12px; color: var(--ink-mute); }
+  footer.note .copyright { margin-top: 0.75rem; color: var(--ink-soft); }
+  footer.note code { font-family: var(--mono); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; }
+
+  @media print { .picker-row, .btn { display: none !important; } body { background: #fff; } .card { border: none; } }
 </style>
 </head>
 <body>
-
-<header>
-  <div class="logo-row">
-    <svg width="52" height="52" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="JobRadar logo">
-      <circle cx="50" cy="50" r="42" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.3"/>
-      <circle cx="50" cy="50" r="29" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.5"/>
-      <circle cx="50" cy="50" r="16" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.75"/>
-      <path d="M50 50 L50 8 A42 42 0 0 1 79.7 20.3 Z" fill="#3fd6bf" opacity="0.4"/>
-      <circle cx="76" cy="24" r="4.5" fill="#3fd6bf"/>
-      <line x1="50" y1="50" x2="76" y2="24" stroke="#3fd6bf" stroke-width="1.5"/>
-    </svg>
-    <h1>JobRadar</h1>
-  </div>
-  <p style="font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;opacity:.7;margin:0 0 14px 0;">Job Hunting Tool Suite</p>
-  <p>A set of standalone tools that turn "I'm not sure what's next" into a ranked direction, researched companies, real postings, tailored applications, drafted outreach, grounded interview prep, and an actual negotiation plan — each one works on its own, and together they cover a full job search.</p>
-  <div style="margin-top:22px;">
-    <a href="Job-Hunting-Tool-Suite.pdf" target="_blank" rel="noopener" style="display:inline-block;background:rgba(255,255,255,0.14);color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:10px 20px;border-radius:7px;border:1px solid rgba(255,255,255,0.35);">Read the Full Guide (PDF) — Getting Started + Job Suite Tools</a>
-  </div>
-</header>
-
 <div class="wrap">
 
-  <div class="grid">
-
-    <div class="card">
-      <span class="step-badge">STEP 0 · DISCOVER</span>
-      <h2>Career Path Discovery Prompt Builder</h2>
-      <p>Not sure what to target next? Analyzes your actual career background like a strategist and executive recruiter would, and surfaces realistic alternative career paths — ranked, evidence-based, and pointing you to the right tool below once you've picked a direction.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Career-Path-Discovery/prompt_builder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Career-Path-Discovery/blob/main/Prompt_Builder_User_Guide.md">User Guide</a>
-      </div>
+  <div class="masthead">
+    <div class="wordmark">
+      <h1>Beacon</h1>
+      <span class="tag">OT career target-list builder</span>
     </div>
+  </div>
+  <div class="fence" id="fence"></div>
 
-    <div class="card">
-      <span class="step-badge">STEP 1 · RESEARCH</span>
-      <h2>Target Company Prompt Builder</h2>
-      <p>Researches and ranks companies for your industry or purpose via a competitor-cascade discovery method — not a NAICS-code search — and builds a formatted Excel tracker with a computed Suggested Priority Rank, so you know where to focus first.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Target-Company-Prompt-Builder/prompt_builder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Target-Company-Prompt-Builder/blob/main/Prompt_Builder_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">STEP 2 · VERIFY</span>
-      <h2>Job Posting Finder</h2>
-      <p>Checks who's actively hiring, right now — real, current job postings with real URLs, not company research. Built to report fewer results honestly rather than pad the list.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Job-Posting-Finder/job_posting_finder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Job-Posting-Finder/blob/main/Job_Posting_Finder_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">STEP 3A · APPLY OR CONNECT</span>
-      <h2>Resume & Cover Letter Tailoring</h2>
-      <p>Tailors your actual resume and cover letter to a specific posting — keyword/gap analysis, bullet rewrites, a traditional letter or a two-column Qualifications Match Letter, plus optional Pivot Positioning Notes for a genuine career-direction change. Never invents a qualification you don't have.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Resume-Cover-Letter-Builder/resume_cover_letter_tailoring.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Resume-Cover-Letter-Builder/blob/main/Resume_Cover_Letter_Tailoring_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">STEP 3B · APPLY OR CONNECT</span>
-      <h2>Outreach Message Builder</h2>
-      <p>Drafts the actual messages you send — tailored per company based on your real connection type, not one generic template. Never invents a relationship that doesn't exist.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Outreach-Message-Builder/outreach_message_builder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Outreach-Message-Builder/blob/main/Outreach_Message_Builder_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">STEP 4 · INTERVIEW</span>
-      <h2>Interview Prep Guide Builder</h2>
-      <p>Turns your resume, the job description, and who you're meeting with into a real, grounded prep guide — three modes for a recruiter screen, a hiring-manager call, or anything else. Includes an honest Candidate SWOT Analysis with weakness-mitigation talking points. Points you to your own strongest stories (or uses your own STAR Stories if you write them); never writes them for you.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Interview-Prep-Guide-Builder/interview_prep_guide_builder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Interview-Prep-Guide-Builder/blob/main/Interview_Prep_Guide_Builder_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">STEP 5 · NEGOTIATE</span>
-      <h2>Salary Negotiator</h2>
-      <p>Turns a real offer, sourced market and company-specific pay data, and your real qualifications into an actual negotiation plan and counter-offer draft. Never invents or exaggerates a competing offer — leaving that blank is the honest default.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Salary-Negotiator/salary_negotiator.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Salary-Negotiator/blob/main/Salary_Negotiator_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
+  <div class="picker-row">
+    <select id="listPicker" onchange="loadSelectedList()">
+      <option value="">Loading lists…</option>
+    </select>
+    <a class="btn" id="downloadFormatted" href="#" style="text-decoration:none;">Download formatted .xlsx</a>
+    <button class="btn secondary" onclick="exportXLSX()">Quick export (browser, respects removed rows)</button>
+    <button class="btn secondary" onclick="window.print()">Print / save as PDF</button>
   </div>
 
-  <div class="flow">
-    <h3>How they fit together</h3>
-    <p>Step 0 is only for when you're not sure what to target — if you already know your direction, skip straight to Step 1. Steps 1 and 2 run in that order — the Job Posting Finder needs a priority-ranked shortlist that only exists after the Prompt Builder has already run. Steps 3a and 3b have no fixed order: network first and tailor your resume once a real opening exists, or find a posting first and tailor immediately, then follow up with outreach. Both are legitimate — the tools don't force either sequence. Step 4 comes after Step 3 actually lands an interview, whichever path got you there — pick whichever of its three modes matches the interview you're prepping for, and afterward the specifics you discuss become real Context Notes for a follow-up message back in Step 3b's Outreach Message Builder. Step 5 comes after Step 4 actually produces a real offer — it's the direct sequel to the salary-range coaching already built into Step 4's Recruiter Screen mode, for once a real number is on the table.</p>
+  <div id="listView">
+    <div class="empty">No list selected yet.</div>
   </div>
 
-  <h3 style="margin:40px 0 4px 0; color:var(--navy); font-size:17px;">Also useful — outside the job-search funnel</h3>
-  <p style="margin:0 0 18px 0; font-size:14px; color:var(--muted); line-height:1.55;">These three aren't steps in the funnel above. One gets your LinkedIn profile itself into job-search-ready shape; another helps you stay visible once it is; the third helps you screen suspicious recruiter outreach the moment it lands in your inbox.</p>
-
-  <div class="grid-3">
-
-    <div class="card">
-      <span class="step-badge">ONGOING · PROFILE</span>
-      <h2>LinkedIn Profile Builder</h2>
-      <p>Optimizes your headline, About section, experience, and skills for the job search specifically — recruiter-searchable, ATS-ready, built around LinkedIn's real character limits. For mid-level and upper-level managers.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/LinkedIn-Profile-Builder/prompt_builder.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/LinkedIn-Profile-Builder/blob/main/Prompt_Builder_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">ONGOING · PERSONAL BRAND</span>
-      <h2>LinkedIn Article Share Builder</h2>
-      <p>Finds the top 3 most on-brand, recent articles worth sharing, then drafts two genuinely different posts for each — an Informational Share and a Position/Stance take — so you're choosing between 6 real drafts, not approving one. Optionally builds matching artwork for whichever one you pick.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/LinkedIN-Article-Share/linkedin_article_share.html">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/LinkedIN-Article-Share/blob/main/LinkedIn_Article_Share_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <span class="step-badge">ONGOING · SAFETY CHECK</span>
-      <h2>Recruiter Message &amp; Job Posting Sanity Check</h2>
-      <p>Screens either a suspicious recruiter message or a job posting — pick a mode — against known scam patterns, and flags a mismatch between the sender's/application's email and the claimed employer. Runs entirely in your browser — no Claude chat needed, finished result immediately.</p>
-      <div class="btn-row">
-        <a class="btn" target="_blank" rel="noopener" href="https://tjackson8817.github.io/Recruiter-Message-Sanity-Check/">Open Tool →</a>
-        <a class="btn-secondary" target="_blank" rel="noopener" href="https://github.com/tjackson8817/Recruiter-Message-Sanity-Check/blob/main/Recruiter_Message_Sanity_Check_User_Guide.md">User Guide</a>
-      </div>
-    </div>
-
-  </div>
-
+  <footer class="note">
+    Public-company data (HQ, SIC) is verified via SEC EDGAR where noted. Everything else — revenue bands for
+    private companies, industry fit, growth signals, outreach strategy — is AI-assisted research and should be
+    verified before use, the same convention used in the original workbook this tool is based on.
+    <strong>Target executive fields are role titles and search keywords only</strong> — no named individuals or
+    scraped contact data are collected. To build a new list, run the <code>Build Target Company List</code>
+    GitHub Action — see README.
+    <p class="copyright">&copy; 2026 Tom Jackson. All rights reserved. Part of the Job Hunting Tool Suite. Free for personal job-search use; see <a href="LICENSE">LICENSE</a> for terms.</p>
+  </footer>
 </div>
 
-<footer>
-  Built for Claude · No install, no account, no server — every tool runs entirely in your browser.
-  <br><a href="Job-Hunting-Tool-Suite.pdf" target="_blank" rel="noopener" style="color:var(--blue);">Full Getting Started guide (PDF)</a>
-</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+let currentReport = null;
+let removedCompanies = new Set();
 
+function renderFence() {
+  document.getElementById("fence").innerHTML = Array.from({length: 48}).map(() => "<span></span>").join("");
+}
+
+async function loadManifest() {
+  const picker = document.getElementById("listPicker");
+  let manifest = [];
+  try {
+    const res = await fetch("data/reports/manifest.json", { cache: "no-store" });
+    manifest = await res.json();
+  } catch (e) { manifest = []; }
+
+  if (!manifest.length) {
+    picker.innerHTML = `<option value="">No lists yet — run the GitHub Action to build one</option>`;
+    return;
+  }
+  picker.innerHTML = manifest.map(m =>
+    `<option value="${m.slug}">${m.list_name} — ${new Date(m.generated_date).toLocaleDateString()} (${m.total_companies} companies)</option>`
+  ).join("");
+  loadSelectedList();
+}
+
+async function loadSelectedList() {
+  const slug = document.getElementById("listPicker").value;
+  const dlLink = document.getElementById("downloadFormatted");
+  if (!slug) {
+    document.getElementById("listView").innerHTML = `<div class="empty">No list selected yet.</div>`;
+    currentReport = null;
+    dlLink.href = "#";
+    return;
+  }
+  dlLink.href = `data/reports/${slug}.xlsx`;
+  dlLink.setAttribute("download", `${slug}.xlsx`);
+  try {
+    const res = await fetch(`data/reports/${slug}.json`, { cache: "no-store" });
+    currentReport = await res.json();
+    removedCompanies = new Set();
+    renderList(currentReport);
+  } catch (e) {
+    document.getElementById("listView").innerHTML = `<div class="empty">Couldn't load that list.</div>`;
+  }
+}
+
+function relevanceBadge(val) {
+  const cls = (val || "").toLowerCase();
+  return `<span class="badge ${cls === 'high' ? 'high' : cls === 'medium' ? 'medium' : 'low'}">${val || "—"}</span>`;
+}
+
+function confidenceBadge(val) {
+  if (!val) return `<span class="badge conf-unknown">unknown</span>`;
+  if (val.startsWith("public-company")) return `<span class="badge conf-verified">SEC-verified</span>`;
+  if (val === "estimate") return `<span class="badge conf-estimate">estimate</span>`;
+  return `<span class="badge conf-unknown">${val}</span>`;
+}
+
+function renderList(report) {
+  const naicsChips = (arr) => (arr || []).map(n =>
+    `<span class="naics-chip">${n.code}${n.description ? " — " + n.description : ""}${n.relationship ? " (" + n.relationship + ")" : ""}</span>`
+  ).join(" ");
+
+  const rows = (report.companies || []).map((c, idx) => {
+    const isRemoved = removedCompanies.has(idx);
+    return `
+    <tr style="${isRemoved ? 'opacity:.4;' : ''}">
+      <td>
+        <button class="btn secondary" style="padding:2px 8px; font-size:11px;" onclick="toggleRemove(${idx})">${isRemoved ? "Restore" : "Remove"}</button>
+      </td>
+      <td><strong>${c.company || ""}</strong>${c.website ? `<br><a href="https://${c.website.replace(/^https?:\/\//,'')}" target="_blank" rel="noopener" style="font-size:11px;">${c.website}</a>` : ""}</td>
+      <td>${c.category || ""}</td>
+      <td>${c.hq || ""}</td>
+      <td>${c.industry_emphasis || ""}</td>
+      <td>${c.company_size_band || ""}</td>
+      <td>${c.revenue_band || ""}</td>
+      <td>${confidenceBadge(c.confidence)}</td>
+      <td>${relevanceBadge(c.ot_ics_relevance)}</td>
+      <td>${relevanceBadge(c.cybersecurity_relevance)}</td>
+      <td style="max-width:220px;">${c.why_this_company_fits || ""}</td>
+      <td style="max-width:180px;">${c.growth_signals || ""}</td>
+      <td style="max-width:200px;">${c.outreach_strategy || ""}</td>
+      <td>${(c.target_executive_titles || []).join("; ")}</td>
+      <td>${(c.linkedin_search_keywords || []).join("; ")}</td>
+      <td>${c.currently_hiring_signal || "—"}${c.currently_hiring_detail ? `<br><span style="color:var(--ink-mute); font-size:11px;">${c.currently_hiring_detail}</span>` : ""}</td>
+      <td class="num">${c.priority_score ?? ""}</td>
+      <td>${c.discovery_source || ""}</td>
+      <td>${c.source_url ? `<a href="${c.source_url}" target="_blank" rel="noopener">link</a>` : ""}</td>
+    </tr>`;
+  }).join("");
+
+  document.getElementById("listView").innerHTML = `
+    <div class="card">
+      <h2>${report.list_name}</h2>
+      <p class="sub">Seed: ${report.seed_company}${report.seed_website ? " (" + report.seed_website + ")" : ""}
+        ${report.geography ? " · " + report.geography : ""} · Generated ${new Date(report.generated_date).toLocaleString()}
+        · ${(report.companies || []).length} companies</p>
+    </div>
+
+    <div class="card">
+      <h2>NAICS codes used</h2>
+      <div class="naics-grid">
+        <div>
+          <p class="sub" style="margin-bottom:6px;">Primary</p>
+          ${naicsChips(report.primary_naics)}
+        </div>
+        <div>
+          <p class="sub" style="margin-bottom:6px;">Secondary / related</p>
+          ${naicsChips(report.secondary_naics)}
+        </div>
+      </div>
+      ${report.naics_rationale ? `<p class="sub" style="margin-top:12px;">${report.naics_rationale}</p>` : ""}
+    </div>
+
+    <div class="card">
+      <h2>Target companies</h2>
+      <p class="sub">Use Remove to drop a row before doing a quick export — doesn't affect the pre-formatted .xlsx, which is fixed at build time.</p>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead><tr>
+            <th></th><th>Company</th><th>Category</th><th>HQ</th><th>Industry Emphasis</th><th>Size</th><th>Revenue Band</th>
+            <th>Confidence</th><th>OT/ICS</th><th>Cyber</th><th>Why Fits</th><th>Growth Signals</th>
+            <th>Outreach Strategy</th><th>Target Titles</th><th>LinkedIn Keywords</th><th>Currently Hiring</th><th>Priority</th>
+            <th>Source</th><th>Link</th>
+          </tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function toggleRemove(idx) {
+  if (removedCompanies.has(idx)) removedCompanies.delete(idx);
+  else removedCompanies.add(idx);
+  renderList(currentReport);
+}
+
+function exportXLSX() {
+  if (!currentReport) { alert("Select a list first."); return; }
+  const companies = (currentReport.companies || [])
+    .filter((c, idx) => !removedCompanies.has(idx))
+    .map(c => ({
+    "Company": c.company || "", "Website": c.website || "", "Category": c.category || "",
+    "HQ": c.hq || "", "Industry Emphasis": c.industry_emphasis || "", "Company Size": c.company_size_band || "",
+    "Revenue Band": c.revenue_band || "", "Confidence": c.confidence || "",
+    "OT/ICS Relevance": c.ot_ics_relevance || "", "Cybersecurity Relevance": c.cybersecurity_relevance || "",
+    "Why This Company Fits": c.why_this_company_fits || "", "Growth Signals": c.growth_signals || "",
+    "Outreach Strategy": c.outreach_strategy || "",
+    "Target Executive Titles": (c.target_executive_titles || []).join("; "),
+    "LinkedIn Search Keywords": (c.linkedin_search_keywords || []).join("; "),
+    "Currently Hiring": c.currently_hiring_signal || "", "Hiring Detail": c.currently_hiring_detail || "",
+    "Priority Score": c.priority_score ?? "", "Discovery Source": c.discovery_source || "",
+    "Source URL": c.source_url || "", "Status": "Not Started", "Contact Name": "", "Notes": ""
+  }));
+  const naics = [...(currentReport.primary_naics || []).map(n => ({...n, type: "Primary"})),
+                 ...(currentReport.secondary_naics || []).map(n => ({...n, type: "Secondary"}))]
+    .map(n => ({"NAICS Code": n.code, "Description": n.description || "", "Type": n.type, "Relationship": n.relationship || ""}));
+
+  const wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(companies), "Target Companies");
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(naics), "NAICS Codes");
+  const meta = [{"List Name": currentReport.list_name, "Seed Company": currentReport.seed_company,
+                 "Geography": currentReport.geography || "", "Generated": currentReport.generated_date}];
+  XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(meta), "Search Info");
+
+  const slug = (currentReport.list_name || "target-list").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  XLSX.writeFile(wb, `${slug}.xlsx`);
+}
+
+renderFence();
+loadManifest();
+</script>
 </body>
 </html>
